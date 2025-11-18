@@ -1,0 +1,74 @@
+# Multi-Model Configuration
+models:
+  gpt4o:
+    provider: "openai"
+    model: "gpt-4o"
+    api_key_env: "OPENAI_API_KEY"
+    temperature: 0.7
+    max_tokens: 2000
+    enabled: true
+
+  gemini:
+    provider: "google"
+    model: "gemini-2.5-flash"
+    api_key_env: "GOOGLE_API_KEY"
+    temperature: 0.7
+    max_tokens: 2000
+    enabled: true
+
+  llama2:
+    provider: "local" # or "huggingface"
+    model: "meta-llama/Llama-2-7b-chat-hf"
+    hf_token_env: "HUGGINGFACE_TOKEN"
+    device: "cuda" # or "cpu"
+    temperature: 0.7
+    max_tokens: 2000
+    enabled: false
+
+# Default model for operations
+default_model: "gemini"
+
+# Dataset Configuration
+dataset:
+  name: "tiny-nq"
+  path: "data/tiny_nq"
+  size: 2000 # As per paper
+  train_split: 0.8
+  test_split: 0.2
+
+# Knowledge Base Configuration
+knowledge_base:
+  benign_kb_path: "data/benign_kb"
+  unlearned_kb_path: "data/unlearned_kb"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  chunk_size: 512
+  chunk_overlap: 50
+
+# Unlearning Configuration
+unlearning:
+  num_aspects: 5
+  max_constraint_words: 150
+  max_retrieval_words: 300
+  max_generation_attempts: 3
+
+# Retrieval Configuration
+retrieval:
+  top_k: 3
+  similarity_threshold: 0.5
+  use_semantic_expansion: true
+
+# Evaluation Configuration
+evaluation:
+  test_set_size: 100
+  rouge_metric: "rougeL"
+  mia_k_percent: 20
+
+# Fine-tuning Configuration (for Llama-2)
+fine_tuning:
+  batch_size: 4
+  learning_rate: 2e-5
+  num_epochs: 3
+  max_length: 512
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
