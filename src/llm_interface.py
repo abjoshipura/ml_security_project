@@ -32,6 +32,8 @@ class LLMInterface:
             self._init_gemini()
         elif provider in ["local", "huggingface"]:
             self._init_llama()
+        elif provider == "ollama":
+            self._init_ollama()
         else:
             raise ValueError(f"Unsupported provider: {provider}")
     
@@ -91,6 +93,18 @@ class LLMInterface:
             device=0 if device == "cuda" and torch.cuda.is_available() else -1
         )
     
+
+    def _init_ollama(self):
+        # Ollama doesn't need a real API key, but OpenAI client requires one
+        api_key = os.getenv(self.model_config['api_key_env'], "ollama-local")
+        base_url = self.model_config.get('base_url', 'http://localhost:11434/v1')
+    
+        self.client = OpenAI(
+            api_key=api_key,
+            base_url=base_url
+        )
+        print(f"Initialized Ollama with model: {self.model_config['model']}")
+    
     def generate(self, prompt: str, system_prompt: Optional[str] = None, temperature: Optional[float] = None, max_tokens: Optional[int] = None) -> str:
         temp = temperature or self.model_config['temperature']
         max_tok = max_tokens or self.model_config['max_tokens']
@@ -103,6 +117,8 @@ class LLMInterface:
                 return self._generate_gemini(prompt, system_prompt, temp, max_tok)
             elif provider in ["local", "huggingface"]:
                 return self._generate_llama(prompt, system_prompt, temp, max_tok)
+            elif provider == "ollama":
+                return self._generate_ollama(prompt, system_prompt, temp, max_tok)
         except Exception as e:
             print(f"Error in LLM generation ({self.model_name}): {e}")
             raise
@@ -162,3 +178,21 @@ class LLMInterface:
         )
         
         return outputs[0]['generated_text'].split('[/INST]')[-1].strip()
+
+    def _generate_ollama(self, prompt, system_prompt, temp, max_tok):
+        """
+        Generate response using Ollama's OpenAI-compatible API
+        Ollama implements the same interface as OpenAI, so we can use the same approach
+        """
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+    
+        response = self.client.chat.completions.create(
+            model=self.model_config['model'],
+            messages=messages,
+            temperature=temp,
+            max_tokens=max_tok
+        )
+        return response.choices[0].message.content
