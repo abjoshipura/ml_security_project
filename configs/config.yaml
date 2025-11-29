@@ -16,23 +16,18 @@ models:
     max_tokens: 2000
     enabled: true
 
-  llama2:
-    provider: "local" # or "huggingface"
-    model: "meta-llama/Llama-2-7b-chat-hf"
-    hf_token_env: "HUGGINGFACE_TOKEN"
-    device: "cuda" # or "cpu"
-    temperature: 0.7
-    max_tokens: 2000
-    enabled: false
+default_model: "gpt4o"
 
-# Default model for operations
-default_model: "gemini"
+# Rate Limiting Configuration
+rate_limiting:
+  max_retries: 3
+  base_delay: 2
 
 # Dataset Configuration
 dataset:
   name: "tiny-nq"
   path: "data/tiny_nq"
-  size: 2000 # As per paper
+  size: 2000
   train_split: 0.8
   test_split: 0.2
 
@@ -54,6 +49,7 @@ unlearning:
 # Retrieval Configuration
 retrieval:
   top_k: 3
+  unlearned_similarity_threshold: 0.6
   similarity_threshold: 0.5
   use_semantic_expansion: true
 
@@ -63,12 +59,4 @@ evaluation:
   rouge_metric: "rougeL"
   mia_k_percent: 20
 
-# Fine-tuning Configuration (for Llama-2)
-fine_tuning:
-  batch_size: 4
-  learning_rate: 2e-5
-  num_epochs: 3
-  max_length: 512
-  lora_r: 8
-  lora_alpha: 16
-  lora_dropout: 0.05
+refusal_string: "I cannot provide information on this topic as it has been restricted."

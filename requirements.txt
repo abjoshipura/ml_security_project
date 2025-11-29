@@ -5,18 +5,18 @@ python-dotenv>=1.0.0
 
 # Transformers & PyTorch
 torch>=2.0.0
-transformers>=4.35.0
+transformers==4.51.3
 accelerate>=0.24.0
-peft>=0.6.0
 bitsandbytes>=0.41.0
 
 # Vector DB & Retrieval
 chromadb>=0.4.0
-sentence-transformers>=2.2.0
+sentence-transformers>=3.0.0
 faiss-cpu>=1.7.4
 
 # NLP & Evaluation
-nltk>=3.8
+hf_xet>=1.2.0
+nltk>=3.8.1
 rouge-score>=0.1.2
 numpy>=1.24.0
 pandas>=2.0.0
@@ -34,6 +34,17 @@ pydantic>=2.0.0
 tqdm>=4.66.0
 pyyaml>=6.0
 
-langchain
-langchain-community
-langchain-chroma
+# LangChain imports
+langchain>=0.3.27
+langchain-chroma>=0.2.6
+langchain-community>=0.3.31
+langchain-huggingface>=0.3.1
+langchain-google-genai>=0.0.5
+langchain-openai>=0.3.35
+
+llm-guard>=0.3.0
+langid>=1.1.6
+ragas>=0.3.9
+
+# HTML parsing
+beautifulsoup4>=4.14.2

@@ -1,27 +1,29 @@
+import argparse
 import os
 import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tqdm import tqdm
-from src.knowledge_base.kb_manager import KnowledgeBaseManager
-from src.data.tiny_nq_loader import TinyNQLoader
+from dotenv import load_dotenv
+from src.kb_manager import KnowledgeBaseManager
+from src.tiny_nq_loader import TinyNQLoader
 
-def setup_benign_kb_from_tiny_nq():
-    """Setup benign KB from Tiny-NQ long answers"""
+if __name__ == "__main__":
+    load_dotenv()
     
-    print("Setting Up the Benign KB from Tiny-NQ")
+    parser = argparse.ArgumentParser(description="Setup Benign Knowledge Base from Tiny-NQ")
+    parser.add_argument("--config", default="configs/config.yaml", help="Path to config file")
+    
+    args = parser.parse_args()
     
     loader = TinyNQLoader()
-    data = loader.download_and_prepare()
+    data = loader.download_and_prepare(num_samples=2000)
 
-    kb_manager = KnowledgeBaseManager()
+    kb_manager = KnowledgeBaseManager(config_path=args.config)
     
-    # Add train data as benign knowledge
-    print("Adding Tiny-NQ data to Benign KB...")
     train_data = data['train']
-    
-    for item in tqdm(train_data, desc="Adding to KB"):
-        # Use long answer as knowledge
+    for item in tqdm(train_data, desc="Adding Training Datapoints to the Benign KB"):
         text = item['long_answer']
         
         kb_manager.add_benign_knowledge(
@@ -29,13 +31,19 @@ def setup_benign_kb_from_tiny_nq():
             metadata={
                 'source': 'tiny-nq',
                 'question': item['question'],
-                'short_answer': item.get('short_answer', ''),
                 'id': item['id']
             }
         )
-    
-    print(f"Added {len(train_data)} entries to Benign KB")
-    print("=" * 60)
-
-if __name__ == "__main__":
-    setup_benign_kb_from_tiny_nq()
+  
+    test_data = data['test']
+    for item in tqdm(test_data, desc="Adding to Testing Datapoints to the Benign KB"):
+        text = item['long_answer']
+        
+        kb_manager.add_benign_knowledge(
+            text=text,
+            metadata={
+                'source': 'tiny-nq',
+                'question': item['question'],
+                'id': item['id']
+            }
+        )
