@@ -1,4 +1,9 @@
-# Multi-Model Configuration
+# RAG-based Concept Unlearning Configuration
+# Reference: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11207222
+
+# ============================================================================
+# LLM Model Configuration
+# ============================================================================
 models:
   gpt4o:
     provider: "openai"
@@ -10,74 +15,85 @@ models:
 
   gemini:
     provider: "google"
-    model: "gemini-2.5-flash"
+    model: "gemini-2.0-flash"
     api_key_env: "GOOGLE_API_KEY"
     temperature: 0.7
     max_tokens: 2000
     enabled: true
 
-  llama2:
-    provider: "local" # or "huggingface"
-    model: "meta-llama/Llama-2-7b-chat-hf"
-    hf_token_env: "HUGGINGFACE_TOKEN"
-    device: "cuda" # or "cpu"
-    temperature: 0.7
-    max_tokens: 2000
-    enabled: false
-
   ollama:
     provider: "ollama"
     model: "llama3.2"
-    api_key_env: "OPENAI_API_KEY"
+    api_key_env: "OLLAMA_API_KEY"  # Not really needed for Ollama
     base_url: "http://localhost:11434/v1"
     temperature: 0.7
     max_tokens: 2000
     enabled: true
 
-# Default model for operations
-default_model: "ollama"
+# Default model to use
+default_model: "gemini"
 
-# Dataset Configuration
-dataset:
-  name: "tiny-nq"
-  path: "data/tiny_nq"
-  size: 2000 # As per paper
-  train_split: 0.8
-  test_split: 0.2
-
+# ============================================================================
 # Knowledge Base Configuration
+# ============================================================================
 knowledge_base:
-  benign_kb_path: "data/benign_kb"
+  # Path to unlearned knowledge ChromaDB
   unlearned_kb_path: "data/unlearned_kb"
+  
+  # Embedding model for semantic search
   embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
-  chunk_size: 512
-  chunk_overlap: 50
 
+# ============================================================================
 # Unlearning Configuration
+# ============================================================================
 unlearning:
+  # Number of aspects for retrieval component
   num_aspects: 5
+  
+  # Maximum words for constraint component
   max_constraint_words: 150
+  
+  # Maximum words for retrieval component
   max_retrieval_words: 300
+  
+  # Retry attempts for generation
   max_generation_attempts: 3
 
+# ============================================================================
 # Retrieval Configuration
+# ============================================================================
 retrieval:
+  # Number of results to retrieve
   top_k: 3
+  
+  # Similarity threshold for matching (0-1)
+  # Higher = stricter matching
   similarity_threshold: 0.5
-  use_semantic_expansion: true
+  
+# ============================================================================
+# Concept Generation Configuration
+# ============================================================================
+concept_generation:
+  # Default number of concepts to generate
+  default_num_concepts: 20
+  
+  # Number of evaluation questions per concept
+  questions_per_concept: 5
+  
+  # Number of adversarial questions per concept
+  adversarial_per_concept: 3
 
+# ============================================================================
 # Evaluation Configuration
+# ============================================================================
 evaluation:
-  test_set_size: 100
+  # ROUGE metric to use
   rouge_metric: "rougeL"
-  mia_k_percent: 20
+  
+  # Temperature for LLM judge
+  judge_temperature: 0.0
 
-# Fine-tuning Configuration (for Llama-2)
-fine_tuning:
-  batch_size: 4
-  learning_rate: 2e-5
-  num_epochs: 3
-  max_length: 512
-  lora_r: 8
-  lora_alpha: 16
-  lora_dropout: 0.05
+# ============================================================================
+# Refusal Response Template
+# ============================================================================
+refusal_template: "I cannot provide information on this topic as it has been restricted."

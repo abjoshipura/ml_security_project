@@ -1,39 +1,23 @@
-# Core
+# RAG-based Concept Unlearning - Dependencies
+
+# Core LLM APIs
 openai>=1.0.0
 google-generativeai>=0.3.0
 python-dotenv>=1.0.0
 
-# Transformers & PyTorch
-torch>=2.0.0
-transformers>=4.35.0
-accelerate>=0.24.0
-peft>=0.6.0
-bitsandbytes>=0.41.0
-
-# Vector DB & Retrieval
+# Vector DB & Embeddings
 chromadb>=0.4.0
 sentence-transformers>=2.2.0
-faiss-cpu>=1.7.4
 
 # NLP & Evaluation
-nltk>=3.8
 rouge-score>=0.1.2
 numpy>=1.24.0
-pandas>=2.0.0
-
-# Datasets
-datasets>=2.14.0
-huggingface-hub>=0.19.0
-
-# API & Interface
-fastapi>=0.104.0
-uvicorn>=0.24.0
-pydantic>=2.0.0
 
 # Utilities
 tqdm>=4.66.0
 pyyaml>=6.0
 
-langchain
-langchain-community
-langchain-chroma
+# Optional: For local models via Transformers (uncomment if needed)
+# torch>=2.0.0
+# transformers>=4.35.0
+# accelerate>=0.24.0

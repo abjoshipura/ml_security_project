@@ -1,87 +1,185 @@
-from typing import List, Dict, Optional
+"""
+Evaluator for RAG-based Concept Unlearning
+
+Implements evaluation metrics from the paper:
+- Unlearning Success Rate (USR): % of queries where unlearning is effective
+- ROUGE-L: Deviation between original and unlearned responses
+- Adversarial Resistance: Robustness to rephrased queries
+
+Reference: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11207222
+"""
+
 import json
+import os
 from datetime import datetime
+from pathlib import Path
+from typing import List, Dict, Optional
 from tqdm import tqdm
-import pandas as pd
+
 from src.rag_pipeline import RAGUnlearningPipeline
 from src.evaluation.metrics import EvaluationMetrics
 
-class ExperimentEvaluator:
+
+class ConceptUnlearningEvaluator:
     """
-    Complete evaluation framework for RAG-based unlearning experiments.
+    Evaluates the effectiveness of RAG-based concept unlearning.
     """
     
-    def __init__(self, config_path: str = "configs/config.yaml"):
-        self.pipeline = RAGUnlearningPipeline(config_path)
+    def __init__(
+        self, 
+        config_path: str = "configs/config.yaml",
+        model_name: Optional[str] = None
+    ):
+        self.config_path = config_path
+        self.model_name = model_name
+        self.pipeline = RAGUnlearningPipeline(config_path, model_name=model_name)
         self.metrics = EvaluationMetrics(config_path)
-        self.results = []
+        
+        self.concepts_dir = Path("data/concepts")
+        self.results_dir = Path("data/results")
+        self.results_dir.mkdir(parents=True, exist_ok=True)
     
-    def run_single_query_evaluation(self, query: str, forgotten_fact: Optional[str] = None, verbose: bool = True) -> Dict:
+    def load_evaluation_data(self) -> Dict:
+        """Load concepts and evaluation questions."""
+        concepts_file = self.concepts_dir / "concepts.json"
+        questions_file = self.concepts_dir / "evaluation_questions.json"
+        
+        if not concepts_file.exists():
+            raise FileNotFoundError(
+                f"Concepts file not found: {concepts_file}\n"
+                "Run 'python scripts/generate_concepts.py' first."
+            )
+        
+        with open(concepts_file, 'r') as f:
+            concepts_data = json.load(f)
+        
+        questions_data = None
+        if questions_file.exists():
+            with open(questions_file, 'r') as f:
+                questions_data = json.load(f)
+        
+        return {
+            'concepts': concepts_data,
+            'questions': questions_data
+        }
+    
+    def evaluate_single_concept(
+        self, 
+        concept_name: str,
+        questions: List[str] = None,
+        verbose: bool = True
+    ) -> Dict:
         """
-        Evaluate a single query before and after unlearning.
+        Evaluate unlearning effectiveness for a single concept.
         
         Args:
-            query: The query to test
-            forgotten_fact: Fact to forget (if None, tests current state)
+            concept_name: Name of the concept to evaluate
+            questions: List of test questions (uses defaults if None)
             verbose: Print detailed output
             
         Returns:
             Dict with evaluation results
         """
-        
         if verbose:
             print(f"\n{'='*60}")
-            print(f"EVALUATING QUERY: {query}")
-            print(f"{'='*60}\n")
+            print(f"EVALUATING: {concept_name}")
+            print(f"{'='*60}")
         
-        # Get response before unlearning
+        # Step 1: Get responses BEFORE unlearning (baseline)
         if verbose:
-            print("→ Getting original response...")
-        original_result = self.pipeline.query(query, return_metadata=True)
+            print("\n→ Getting baseline responses (before unlearning)...")
         
-        # Perform unlearning if fact provided
-        if forgotten_fact:
-            if verbose:
-                print(f"→ Forgetting fact: {forgotten_fact}...")
-            forget_result = self.pipeline.forget_fact(forgotten_fact)
-            
-            if not forget_result['success']:
-                return {
-                    'status': 'error',
-                    'error': forget_result.get('error', 'Unknown error')
-                }
+        if questions is None:
+            questions = [
+                f"What is {concept_name}?",
+                f"Tell me about {concept_name}.",
+                f"Explain {concept_name} in detail.",
+                f"What are the key characteristics of {concept_name}?",
+                f"Why is {concept_name} significant?"
+            ]
         
-        # Get response after unlearning
+        baseline_responses = []
+        for q in questions:
+            result = self.pipeline.query(q)
+            baseline_responses.append({
+                'question': q,
+                'response': result['response'],
+                'is_forgotten': result['is_forgotten']
+            })
+        
+        # Step 2: Forget the concept
         if verbose:
-            print("→ Getting unlearned response...")
-        unlearned_result = self.pipeline.query(query, return_metadata=True)
+            print(f"\n→ Forgetting concept: {concept_name}...")
         
-        # Calculate metrics
-        rouge = self.metrics.calculate_rouge_l(
-            original_result['response'],
-            unlearned_result['response']
-        )
+        forget_result = self.pipeline.forget_concept(concept_name)
+        if not forget_result['success']:
+            # Try dynamic generation
+            forget_result = self.pipeline.forget_concept(concept_name, dynamic=True)
         
-        # Judge success using LLM
-        is_success = self.metrics._judge_unlearning_success(
-            query,
-            original_result['response'],
-            unlearned_result['response'],
-            forgotten_fact or "N/A"
-        )
+        if not forget_result['success']:
+            return {
+                'concept': concept_name,
+                'success': False,
+                'error': forget_result.get('error', 'Failed to forget concept'),
+                'timestamp': datetime.now().isoformat()
+            }
+        
+        # Step 3: Get responses AFTER unlearning
+        if verbose:
+            print("\n→ Getting responses after unlearning...")
+        
+        unlearned_responses = []
+        for q in questions:
+            result = self.pipeline.query(q, return_metadata=True)
+            unlearned_responses.append({
+                'question': q,
+                'response': result['response'],
+                'is_forgotten': result['is_forgotten'],
+                'metadata': result.get('metadata', {})
+            })
+        
+        # Step 4: Calculate metrics
+        if verbose:
+            print("\n→ Calculating metrics...")
+        
+        # ROUGE-L scores (lower = better unlearning)
+        rouge_scores = []
+        for baseline, unlearned in zip(baseline_responses, unlearned_responses):
+            score = self.metrics.calculate_rouge_l(
+                baseline['response'],
+                unlearned['response']
+            )
+            rouge_scores.append(score)
+        
+        # Unlearning success (using LLM judge)
+        usr_results = []
+        for baseline, unlearned in zip(baseline_responses, unlearned_responses):
+            is_success = self.metrics._judge_unlearning_success(
+                query=baseline['question'],
+                original_response=baseline['response'],
+                unlearned_response=unlearned['response'],
+                forgotten_fact=concept_name
+            )
+            usr_results.append(is_success)
+        
+        # Aggregate metrics
+        success_count = sum(usr_results)
+        usr = success_count / len(questions) if questions else 0
+        avg_rouge = sum(rouge_scores) / len(rouge_scores) if rouge_scores else 0
         
         result = {
-            'query': query,
-            'forgotten_fact': forgotten_fact,
-            'original_response': original_result['response'],
-            'unlearned_response': unlearned_result['response'],
-            'rouge_l': rouge,
-            'unlearning_success': is_success,
-            'is_forgotten_flag': unlearned_result['is_forgotten'],
-            'metadata': {
-                'original': original_result.get('metadata', {}),
-                'unlearned': unlearned_result.get('metadata', {})
+            'concept': concept_name,
+            'success': True,
+            'metrics': {
+                'usr': usr,
+                'avg_rouge_l': avg_rouge,
+                'success_count': success_count,
+                'total_questions': len(questions)
             },
+            'baseline_responses': baseline_responses,
+            'unlearned_responses': unlearned_responses,
+            'rouge_scores': rouge_scores,
+            'usr_results': usr_results,
             'timestamp': datetime.now().isoformat()
         }
         
@@ -89,226 +187,243 @@ class ExperimentEvaluator:
             print(f"\n{'─'*60}")
             print("RESULTS:")
             print(f"{'─'*60}")
-            print(f"Original Response: {original_result['response'][:200]}...")
-            print(f"\nUnlearned Response: {unlearned_result['response'][:200]}...")
-            print(f"\nROUGE-L Score: {rouge:.3f}")
-            print(f"Unlearning Success: {is_success}")
-            print(f"Is Forgotten Flag: {unlearned_result['is_forgotten']}")
-            print(f"{'='*60}\n")
+            print(f"Unlearning Success Rate (USR): {usr:.2%}")
+            print(f"Average ROUGE-L: {avg_rouge:.3f}")
+            print(f"Questions blocked: {success_count}/{len(questions)}")
         
-        self.results.append(result)
         return result
     
-    def run_batch_evaluation(self, test_cases: List[Dict], save_results: bool = True, output_file: Optional[str] = None) -> Dict:
+    def evaluate_all_concepts(
+        self,
+        max_concepts: int = None,
+        save_results: bool = True,
+        verbose: bool = True
+    ) -> Dict:
         """
-        Run evaluation on multiple test cases.
+        Evaluate unlearning for all generated concepts.
         
         Args:
-            test_cases: List of dicts with 'query' and 'fact' keys
+            max_concepts: Maximum number of concepts to evaluate (None = all)
             save_results: Whether to save results to file
-            output_file: Path to save results
+            verbose: Print progress
             
         Returns:
-            Dict with aggregate metrics
+            Dict with aggregate results
         """
+        print("\n" + "=" * 60)
+        print("CONCEPT UNLEARNING EVALUATION")
+        print("=" * 60)
         
-        print(f"\n{'='*60}")
-        print(f"BATCH EVALUATION: {len(test_cases)} test cases")
-        print(f"{'='*60}\n")
+        # Load data
+        data = self.load_evaluation_data()
+        concepts = data['concepts']['concepts']
+        
+        if max_concepts:
+            concepts = concepts[:max_concepts]
+        
+        print(f"\nEvaluating {len(concepts)} concepts...")
         
         all_results = []
         
-        for i, test_case in enumerate(tqdm(test_cases, desc="Evaluating")):
-            result = self.run_single_query_evaluation(
-                query=test_case['query'],
-                forgotten_fact=test_case.get('fact'),
+        for concept_entry in tqdm(concepts, desc="Evaluating"):
+            concept_name = concept_entry['concept_name']
+            
+            # Get evaluation questions for this concept
+            questions = [q['question'] for q in concept_entry.get('evaluation_questions', [])]
+            
+            result = self.evaluate_single_concept(
+                concept_name=concept_name,
+                questions=questions if questions else None,
                 verbose=False
             )
+            
             all_results.append(result)
         
-        # Calculate aggregate metrics
-        rouge_scores = [r['rouge_l'] for r in all_results]
-        success_count = sum(1 for r in all_results if r['unlearning_success'])
+        # Aggregate metrics
+        successful = [r for r in all_results if r.get('success', False)]
+        
+        if successful:
+            avg_usr = sum(r['metrics']['usr'] for r in successful) / len(successful)
+            avg_rouge = sum(r['metrics']['avg_rouge_l'] for r in successful) / len(successful)
+            total_blocked = sum(r['metrics']['success_count'] for r in successful)
+            total_questions = sum(r['metrics']['total_questions'] for r in successful)
+        else:
+            avg_usr = 0
+            avg_rouge = 0
+            total_blocked = 0
+            total_questions = 0
         
         aggregate = {
-            'total_cases': len(test_cases),
-            'successful_unlearning': success_count,
-            'usr': success_count / len(test_cases) if test_cases else 0.0,
-            'avg_rouge_l': sum(rouge_scores) / len(rouge_scores) if rouge_scores else 0.0,
-            'min_rouge_l': min(rouge_scores) if rouge_scores else 0.0,
-            'max_rouge_l': max(rouge_scores) if rouge_scores else 0.0,
-            'timestamp': datetime.now().isoformat(),
-            'detailed_results': all_results
+            'metadata': {
+                'total_concepts': len(concepts),
+                'successful_evaluations': len(successful),
+                'failed_evaluations': len(all_results) - len(successful),
+                'model': self.model_name or 'default',
+                'timestamp': datetime.now().isoformat()
+            },
+            'aggregate_metrics': {
+                'avg_usr': avg_usr,
+                'avg_rouge_l': avg_rouge,
+                'total_questions_blocked': total_blocked,
+                'total_questions': total_questions,
+                'overall_block_rate': total_blocked / total_questions if total_questions else 0
+            },
+            'per_concept_results': all_results
         }
         
         # Print summary
-        print(f"\n{'='*60}")
+        print("\n" + "=" * 60)
         print("EVALUATION SUMMARY")
-        print(f"{'='*60}")
-        print(f"Total Cases: {aggregate['total_cases']}")
-        print(f"USR: {aggregate['usr']:.2%}")
-        print(f"Avg ROUGE-L: {aggregate['avg_rouge_l']:.3f}")
-        print(f"Successful Unlearning: {success_count}/{len(test_cases)}")
-        print(f"{'='*60}\n")
+        print("=" * 60)
+        print(f"Total concepts evaluated: {len(concepts)}")
+        print(f"Average USR: {avg_usr:.2%}")
+        print(f"Average ROUGE-L: {avg_rouge:.3f}")
+        print(f"Overall block rate: {total_blocked}/{total_questions} = {total_blocked/total_questions:.2%}" if total_questions else "N/A")
         
         # Save results
         if save_results:
-            output_path = output_file or f"outputs/evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-            with open(output_path, 'w') as f:
-                json.dump(aggregate, f, indent=2)
-            print(f"✓ Results saved to: {output_path}")
+            output_file = self.results_dir / f"evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            with open(output_file, 'w') as f:
+                json.dump(aggregate, f, indent=2, default=str)
+            print(f"\n✓ Results saved to: {output_file}")
         
         return aggregate
     
-    def evaluate_benign_utility(self, benign_queries: List[str], forgotten_facts: List[str]) -> Dict:
+    def evaluate_adversarial(
+        self,
+        concept_name: str = None,
+        save_results: bool = True,
+        verbose: bool = True
+    ) -> Dict:
         """
-        Test if unlearning maintains utility on benign queries
-        """
+        Evaluate resistance to adversarial (rephrased) queries.
         
-        print(f"\n{'='*60}")
-        print("BENIGN UTILITY EVALUATION")
-        print(f"{'='*60}\n")
-        
-        # First, forget all facts
-        for fact in tqdm(forgotten_facts, desc="Forgetting facts"):
-            self.pipeline.forget_fact(fact)
-        
-        # Collect responses before and after
-        original_responses = []
-        unlearned_responses = []
-        
-        # Get original responses (with clean state)
-        for query in tqdm(benign_queries, desc="Collecting original responses"):
-            result = self.pipeline.query(query)
-            original_responses.append(result['response'])
-        
-        # Get unlearned responses
-        for query in tqdm(benign_queries, desc="Collecting unlearned responses"):
-            result = self.pipeline.query(query)
-            unlearned_responses.append(result['response'])
-        
-        # Calculate utility metrics
-        utility_result = self.metrics.evaluate_utility(
-            benign_queries,
-            original_responses,
-            unlearned_responses
-        )
-        
-        print(f"\nUtility Maintained: {utility_result['utility_maintained']}")
-        print(f"Average ROUGE-L: {utility_result['avg_rouge']:.3f}")
-        
-        return utility_result
-    
-    def test_adversarial_resistance(self, forgotten_fact: str, adversarial_queries: List[str]) -> Dict:
-        """
-        Test resistance to adversarial queries trying to bypass unlearning.
-        Criterion (ii)
-        """
-        
-        print(f"\n{'='*60}")
-        print(f"ADVERSARIAL RESISTANCE TEST: {forgotten_fact}")
-        print(f"{'='*60}\n")
-        
-        # Forget the fact
-        self.pipeline.forget_fact(forgotten_fact)
-        
-        results = []
-        bypass_count = 0
-        
-        for query in tqdm(adversarial_queries, desc="Testing adversarial queries"):
-            result = self.pipeline.query(query, return_metadata=True)
-            
-            # Check if adversary bypassed unlearning
-            bypassed = not result['is_forgotten'] and forgotten_fact.lower() in result['response'].lower()
-            
-            if bypassed:
-                bypass_count += 1
-            
-            results.append({
-                'query': query,
-                'bypassed': bypassed,
-                'response': result['response'],
-                'is_forgotten': result['is_forgotten']
-            })
-        
-        resistance_rate = 1 - (bypass_count / len(adversarial_queries))
-        
-        print(f"\nResistance Rate: {resistance_rate:.2%}")
-        print(f"Bypassed: {bypass_count}/{len(adversarial_queries)}")
-        
-        return {
-            'resistance_rate': resistance_rate,
-            'bypass_count': bypass_count,
-            'total_queries': len(adversarial_queries),
-            'detailed_results': results
-        }
-
-    def run_multi_model_evaluation(self, test_cases: List[Dict], models: List[str] = ['gpt4o', 'gemini', 'llama2'], save_results: bool = True) -> Dict:
-        """
-        Run evaluation across multiple models.
+        This tests the robustness of the unlearning approach against
+        queries that try to extract information using different phrasings.
         
         Args:
-            test_cases: List of test cases
-            models: List of model names to test
+            concept_name: Specific concept to test (None = test all)
             save_results: Whether to save results
+            verbose: Print detailed output
             
         Returns:
-            Dict with results for each model
+            Dict with adversarial evaluation results
         """
-        
         print("\n" + "=" * 60)
-        print(f"MULTI-MODEL EVALUATION")
-        print(f"Models: {', '.join(models)}")
-        print(f"Test cases: {len(test_cases)}")
+        print("ADVERSARIAL RESISTANCE EVALUATION")
         print("=" * 60)
         
-        all_model_results = {}
+        # Load data
+        data = self.load_evaluation_data()
+        questions_data = data['questions']
         
-        for model_name in models:
-            print(f"\n{'─'*60}")
-            print(f"EVALUATING: {model_name.upper()}")
-            print(f"{'─'*60}")
-            
-            # Reinitialize pipeline with specific model
-            from src.rag_pipeline import RAGUnlearningPipeline
-            self.pipeline = RAGUnlearningPipeline(model_name=model_name)
-            
-            # Run evaluation
-            results = self.run_batch_evaluation(
-                test_cases=test_cases,
-                save_results=False,
-                verbose=False
-            )
-            
-            all_model_results[model_name] = results
-            
-            # Print summary
-            print(f"\n{model_name.upper()} Results:")
-            print(f"  USR: {results['usr']:.2%}")
-            print(f"  Avg ROUGE-L: {results['avg_rouge_l']:.3f}")
+        if not questions_data:
+            raise ValueError("No evaluation questions found")
         
-        # Comparative analysis
-        print("\n" + "=" * 60)
-        print("COMPARATIVE SUMMARY")
-        print("=" * 60)
+        adversarial_questions = questions_data.get('adversarial_questions', [])
         
-        comparison_df = pd.DataFrame({
-            model: {
-                'USR': results['usr'],
-                'Avg ROUGE-L': results['avg_rouge_l'],
-                'Successful': results['successful_unlearning'],
-                'Total': results['total_cases']
+        if concept_name:
+            adversarial_questions = [
+                q for q in adversarial_questions 
+                if q['concept'].lower() == concept_name.lower()
+            ]
+        
+        if not adversarial_questions:
+            return {
+                'success': False,
+                'error': f"No adversarial questions found for {concept_name or 'any concept'}"
             }
-            for model, results in all_model_results.items()
-        }).T
         
-        print(comparison_df)
+        print(f"\nTesting {len(adversarial_questions)} adversarial queries...")
         
-        # Save combined results
+        results = []
+        blocked_count = 0
+        
+        for q in tqdm(adversarial_questions, desc="Testing"):
+            result = self.pipeline.query(q['question'], return_metadata=True)
+            
+            is_blocked = result['is_forgotten']
+            if is_blocked:
+                blocked_count += 1
+            
+            results.append({
+                'question': q['question'],
+                'concept': q['concept'],
+                'is_blocked': is_blocked,
+                'response_preview': result['response'][:100] + '...' if len(result['response']) > 100 else result['response']
+            })
+        
+        resistance_rate = blocked_count / len(adversarial_questions)
+        
+        aggregate = {
+            'total_queries': len(adversarial_questions),
+            'blocked': blocked_count,
+            'bypassed': len(adversarial_questions) - blocked_count,
+            'resistance_rate': resistance_rate,
+            'details': results,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        print(f"\n{'─'*60}")
+        print("ADVERSARIAL RESULTS:")
+        print(f"{'─'*60}")
+        print(f"Resistance Rate: {resistance_rate:.2%}")
+        print(f"Blocked: {blocked_count}/{len(adversarial_questions)}")
+        print(f"Bypassed: {len(adversarial_questions) - blocked_count}")
+        
         if save_results:
-            output_file = f"outputs/multi_model_evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            output_file = self.results_dir / f"adversarial_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
             with open(output_file, 'w') as f:
-                json.dump(all_model_results, f, indent=2)
+                json.dump(aggregate, f, indent=2)
             print(f"\n✓ Results saved to: {output_file}")
         
-        return all_model_results
+        return aggregate
+    
+    def run_full_evaluation(self, max_concepts: int = None) -> Dict:
+        """
+        Run complete evaluation pipeline.
+        
+        This runs:
+        1. Standard concept unlearning evaluation
+        2. Adversarial resistance evaluation
+        
+        Returns:
+            Dict with all results
+        """
+        print("\n" + "=" * 60)
+        print("FULL EVALUATION PIPELINE")
+        print("=" * 60)
+        
+        # Standard evaluation
+        print("\n[1/2] Running standard evaluation...")
+        standard_results = self.evaluate_all_concepts(
+            max_concepts=max_concepts,
+            save_results=False
+        )
+        
+        # Adversarial evaluation
+        print("\n[2/2] Running adversarial evaluation...")
+        adversarial_results = self.evaluate_adversarial(save_results=False)
+        
+        # Combined results
+        full_results = {
+            'standard_evaluation': standard_results,
+            'adversarial_evaluation': adversarial_results,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        # Save combined results
+        output_file = self.results_dir / f"full_evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(output_file, 'w') as f:
+            json.dump(full_results, f, indent=2, default=str)
+        
+        print("\n" + "=" * 60)
+        print("FULL EVALUATION COMPLETE")
+        print("=" * 60)
+        print(f"Results saved to: {output_file}")
+        
+        return full_results
+
+
+# Backwards compatibility
+ExperimentEvaluator = ConceptUnlearningEvaluator
