@@ -3,10 +3,15 @@ from src.rag_pipeline import RAGUnlearningPipeline
 def quick_test():
     pipeline = RAGUnlearningPipeline()
     
+    # Test 0: Hello World!
+    print("Test 0: Saying Hello")
+    result = pipeline.query("How are you! My name is Luis, what about you?")
+    print(f"Response: {result['response'][:]}...\n")
+
     # Test 1: Simple query before unlearning
     print("Test 1: Query before unlearning")
     result = pipeline.query("Who is Harry Potter?")
-    print(f"Response: {result['response'][:100]}...\n")
+    print(f"Response: {result['response'][:]}...\n")
     
     # Test 2: Forget a fact
     print("Test 2: Forgetting 'Harry Potter'")

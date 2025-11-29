@@ -34,13 +34,13 @@ class RAGUnlearningPipeline:
         # If the query is related to something meant to be forgotten, refuse to respond
         if retrieval_result['is_forgotten']:
             refusal_response = self._generate_refusal_response(retrieval_result)
-            
+           
             output = {
                 'response': refusal_response,
                 'is_forgotten': True,
                 'timestamp': datetime.now().isoformat()
             }
-            
+          
             if return_metadata:
                 output['metadata'] = {
                     'retrieval_source': retrieval_result['source'],
@@ -48,8 +48,8 @@ class RAGUnlearningPipeline:
                     'num_docs_retrieved': len(retrieval_result['documents']),
                     'enforcement': 'immediate_refusal'
                 }
-            
-            return output
+          
+            return output # TODO: Return the refusal response
         
         # If there was a retrieved document, format is approriately for the prompt template and pass it to the LLM
         if retrieval_result['documents']:

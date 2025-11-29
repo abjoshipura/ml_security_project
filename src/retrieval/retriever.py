@@ -32,18 +32,18 @@ class LangChainRetriever:
         
         # Create retrievers with different search configs
         self.benign_retriever = self.benign_vectorstore.as_retriever(
-            search_type="similarity_score_threshold",
+            search_type="similarity",
             search_kwargs={
                 "k": self.retrieval_config['top_k'],
-                "score_threshold": 0.5
+                #"score_threshold": 0.5
             }
         )
         
         self.unlearned_retriever = self.unlearned_vectorstore.as_retriever(
-            search_type="similarity_score_threshold",
+            search_type="similarity",
             search_kwargs={
                 "k": self.retrieval_config['top_k'],
-                "score_threshold": 0.6  # Stricter similarity threshold for any unlearned facts
+                #"score_threshold": 0.6  # Stricter similarity threshold for any unlearned facts
             }
         )
         
