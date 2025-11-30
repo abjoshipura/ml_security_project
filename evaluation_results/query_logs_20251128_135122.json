@@ -67,141 +67,121 @@
         "query": "when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is when's the last time buffalo bills won a playoff game?",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in English is \"the.\" It is the definite article used to specify a particular noun that is known to the reader or listener.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Tell me about which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It is an article used to define specific nouns and is essential for the structure of English sentences. \"The\" is used to refer to particular items that are known to the listener or reader, making it an integral part of everyday communication.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "What is which is the most common word in english?",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It is used as a definite article and appears frequently in both written and spoken English.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Explain which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It is a definite article used to specify a particular noun that is known to the reader or listener. Its frequent use is attributed to its essential role in sentence construction and its necessity in English grammar for defining and specifying nouns.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is when did daylight savings time start in washington state?",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who had the highest batting average in major league baseball history?",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "Outfielder Ty Cobb holds the record for the highest batting average in Major League Baseball (MLB) history. Ty Cobb's career batting average was .366, achieved over 24 seasons, mostly with the Detroit Tigers. He also won a record 11 batting titles in the American League.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Explain who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is where are oranges mostly grown in the world?",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [
@@ -499,141 +479,121 @@
         "query": "when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is when's the last time buffalo bills won a playoff game?",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain when's the last time buffalo bills won a playoff game",
         "forgotten_fact": "when's the last time buffalo bills won a playoff game",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It's a definite article used to specify a particular noun that is known to the reader or listener.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Tell me about which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It is a definite article used to specify particular nouns and is an essential component of English grammar. Its frequent usage in various contexts makes it the most prevalent word in written and spoken English.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "What is which is the most common word in english?",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in English is \"the.\" It is a definite article used to specify a particular noun that is known to the reader or listener.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Explain which is the most common word in english",
         "forgotten_fact": "which is the most common word in english",
         "response": "The most common word in the English language is \"the.\" It is a definite article used to specify particular nouns and is essential for sentence construction. Its frequent usage is due to the necessity of articles to define nouns in English, making it indispensable in both written and spoken communication.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is when did daylight savings time start in washington state?",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain when did daylight savings time start in washington state",
         "forgotten_fact": "when did daylight savings time start in washington state",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who had the highest batting average in major league baseball history?",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who had the highest batting average in major league baseball history",
         "forgotten_fact": "who had the highest batting average in major league baseball history",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is where are oranges mostly grown in the world?",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain where are oranges mostly grown in the world",
         "forgotten_fact": "where are oranges mostly grown in the world",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [

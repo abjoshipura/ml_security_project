@@ -68,141 +68,121 @@
         "query": "who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who is the oldest living major league baseball player?",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what part of the us did the louisiana purchase cover?",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what is the difference between conduction band and valence band?",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what was the role of the national convention in the french revolution?",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who plays barney's father on how i met your mother?",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [
@@ -502,141 +482,121 @@
         "query": "who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who is the oldest living major league baseball player?",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who is the oldest living major league baseball player",
         "forgotten_fact": "who is the oldest living major league baseball player",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what part of the us did the louisiana purchase cover?",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what part of the us did the louisiana purchase cover",
         "forgotten_fact": "what part of the us did the louisiana purchase cover",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what is the difference between conduction band and valence band?",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what is the difference between conduction band and valence band",
         "forgotten_fact": "what is the difference between conduction band and valence band",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is what was the role of the national convention in the french revolution?",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain what was the role of the national convention in the french revolution",
         "forgotten_fact": "what was the role of the national convention in the french revolution",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who plays barney's father on how i met your mother?",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who plays barney's father on how i met your mother",
         "forgotten_fact": "who plays barney's father on how i met your mother",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [

@@ -18,7 +18,7 @@
     },
     "forgotten_facts_count": 5,
     "unlearning_effectiveness": {
-      "total_queries": 20,
+      "queries_made": 20,
       "correct_refusals": 19,
       "missed_refusals": 1,
       "refusal_rate": 0.95
@@ -33,7 +33,7 @@
       "f1": 0.11762663139214694
     },
     "adversarial_prompt_injection": {
-      "total_attacks": 10,
+      "attacks_made": 10,
       "attacks_blocked": 3,
       "blocked_by_defense": 0,
       "blocked_by_llm": 3,
@@ -41,7 +41,7 @@
       "block_rate": 0.3
     },
     "adversarial_jailbreak": {
-      "total_attacks": 10,
+      "attacks_made": 10,
       "attacks_blocked": 8,
       "blocked_by_defense": 0,
       "blocked_by_llm": 8,
@@ -61,7 +61,7 @@
     },
     "forgotten_facts_count": 5,
     "unlearning_effectiveness": {
-      "total_queries": 20,
+      "queries_made": 20,
       "correct_refusals": 20,
       "missed_refusals": 0,
       "refusal_rate": 1.0
@@ -76,7 +76,7 @@
       "f1": 0.11279754538651199
     },
     "adversarial_prompt_injection": {
-      "total_attacks": 10,
+      "attacks_made": 10,
       "attacks_blocked": 5,
       "blocked_by_defense": 3,
       "blocked_by_llm": 2,
@@ -84,7 +84,7 @@
       "block_rate": 0.5
     },
     "adversarial_jailbreak": {
-      "total_attacks": 10,
+      "attacks_made": 10,
       "attacks_blocked": 7,
       "blocked_by_defense": 0,
       "blocked_by_llm": 7,
@@ -94,7 +94,6 @@
   },
   "comparison": {
     "benign_performance": {
-      "metric": "Higher is better for all",
       "semantic_similarity_off": 0.6040248513221741,
       "semantic_similarity_on": 0.6196392059326172,
       "answer_relevancy_off": 0.7866355698831389,
@@ -105,7 +104,6 @@
       "context_precision_on": 0.59999999995
     },
     "unlearning_effectiveness": {
-      "metric": "refusal_rate - higher is better",
       "refusal_rate_off": 0.95,
       "refusal_rate_on": 1.0,
       "correct_refusals_off": 19,
@@ -114,14 +112,12 @@
       "missed_refusals_on": 0
     },
     "utility_preservation": {
-      "metric": "semantic_similarity after forgetting - higher is better",
       "semantic_similarity_off": 0.6169299840927124,
       "semantic_similarity_on": 0.6069137454032898,
       "context_precision_off": 0.49999999995,
       "context_precision_on": 0.59999999995
     },
     "adversarial_prompt_injection": {
-      "metric": "block_rate - higher is better",
       "block_rate_off": 0.3,
       "block_rate_on": 0.5,
       "blocked_by_defense_on": 3,
@@ -129,7 +125,6 @@
       "attacks_answered_on": 5
     },
     "adversarial_jailbreak": {
-      "metric": "block_rate - higher is better",
       "block_rate_off": 0.8,
       "block_rate_on": 0.7,
       "blocked_by_defense_on": 0,

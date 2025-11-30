@@ -16,6 +16,9 @@ class KnowledgeBaseManager:
         self.benign_kb_path = self.kb_config['benign_kb_path']
         self.unlearned_kb_path = self.kb_config['unlearned_kb_path']
 
+        os.makedirs(os.path.dirname(self.benign_kb_path), exist_ok=True)
+        os.makedirs(os.path.dirname(self.unlearned_kb_path), exist_ok=True)
+
         self.embedding_model = SentenceTransformer(self.kb_config['embedding_model'])
         
         self.benign_client = chromadb.PersistentClient(path=self.benign_kb_path)
@@ -112,8 +115,6 @@ class KnowledgeBaseManager:
         """Save the forgotten facts to a JSON"""
         filepath = os.path.join(self.unlearned_kb_path, "forgotten_facts.json")
 
-        os.makedirs(os.path.dirname(filepath), exist_ok=True)
-        
         with open(filepath, 'w') as f:
             json.dump({'forgotten_facts': list(self.forgotten_facts), 'last_updated': datetime.now().isoformat()}, f, indent=2)
 

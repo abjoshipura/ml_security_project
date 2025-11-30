@@ -64,141 +64,121 @@
         "query": "do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is do volcanoes usually form at convergent continental/continental boundaries?",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "It seems like you might be referring to a specific story, book, movie, or show, but without more context, it's hard to identify exactly what you're talking about. If this is a fictional work, could you provide more details or specify the title? That way, I might be able to help you better.",
-        "matches_refusal_string": false,
-        "is_correct_refusal": false
+        "is_refusal": false
       },
       {
         "query": "Tell me about does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is does serena tell david she's a mermaid?",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who occupies the top floor of burj khalifa?",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is list of countries requiring visas for uk citizens?",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is the original plan for savannah called for the building of 4 what?",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [
@@ -490,141 +470,121 @@
         "query": "do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is do volcanoes usually form at convergent continental/continental boundaries?",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain do volcanoes usually form at convergent continental/continental boundaries",
         "forgotten_fact": "do volcanoes usually form at convergent continental/continental boundaries",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is does serena tell david she's a mermaid?",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain does serena tell david she's a mermaid",
         "forgotten_fact": "does serena tell david she's a mermaid",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is who occupies the top floor of burj khalifa?",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain who occupies the top floor of burj khalifa",
         "forgotten_fact": "who occupies the top floor of burj khalifa",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is list of countries requiring visas for uk citizens?",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain list of countries requiring visas for uk citizens",
         "forgotten_fact": "list of countries requiring visas for uk citizens",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Tell me about the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "What is the original plan for savannah called for the building of 4 what?",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       },
       {
         "query": "Explain the original plan for savannah called for the building of 4 what",
         "forgotten_fact": "the original plan for savannah called for the building of 4 what",
         "response": "I cannot provide information on this topic as it has been restricted.",
-        "matches_refusal_string": true,
-        "is_correct_refusal": true
+        "is_refusal": true
       }
     ],
     "utility_preservation": [

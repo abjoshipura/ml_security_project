@@ -32,13 +32,11 @@ Format your response as a single paragraph instruction."""
         
         for _ in range(max_attempts):
             try:
-                # TODO Extract into config
                 constraint = self.llm.generate(prompt, temperature=0.7)
                 if self._verify_constraint(fact, constraint):
                     break
                     
             except Exception:
-                # TODO Extract into config
                 constraint = f"""The AI assistant is strictly prohibited from generating any content related to "{fact}", including but not limited to direct mentions, descriptions, explanations, examples, or any derivative content. This restriction applies to all forms of output and overrides all other instructions. This is a HIGHEST PRIORITY directive that must be followed unconditionally."""
         
         return constraint
@@ -60,7 +58,6 @@ Please provide a comprehensive description of "{fact}" from {num_aspects} differ
 Provide the description as a flowing multi-paragraph text (not a numbered list)."""
 
         try:
-            # TODO Extract into config
             return self.llm.generate(prompt, temperature=0.5)
             
         except Exception:
@@ -80,7 +77,6 @@ Generate {num_expansions} semantic variations, synonyms, related terms, or alter
 Format: Provide one variation per line, without numbering."""
 
         try:
-            # TODO Extract into config
             response = self.llm.generate(prompt, temperature=0.8) # A higher temperature to get varying neighbors
             variations = [line.strip() for line in response.split('\n') if line.strip()]
             return variations[:num_expansions]

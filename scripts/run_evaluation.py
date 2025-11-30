@@ -11,13 +11,13 @@ if __name__ == "__main__":
     load_dotenv()
 
     parser = argparse.ArgumentParser(description="Run RAG Unlearning Evaluation")
-    parser.add_argument("--config", default="configs/config.yaml")
+    parser.add_argument("--config", default="configs/config.yaml", help="Path to config file")
     parser.add_argument("--num-benign", type=int, default=25)
     parser.add_argument("--num-facts-to-forget", type=int, default=25)
     parser.add_argument("--num-injection-attacks", type=int, default=30)
-    parser.add_argument("--num-jailbreak-attacks", type=int, default=30, help="Jailbreak attacks")
+    parser.add_argument("--num-jailbreak-attacks", type=int, default=30)
     parser.add_argument("--output-dir", default="evaluation_results")
-    parser.add_argument("--quick", action='store_true', help="Quick test mode")
+    parser.add_argument("--quick", action='store_true')
     
     args = parser.parse_args()
     
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         args.num_injection_attacks = 10
         args.num_jailbreak_attacks = 10
 
-    # TODO: Remove
+    # NOTE: These were the values used for the '*_big_eval.json' results
     # if args.quick:
     #     args.num_benign = 150
     #     args.num_forgotten = 100
