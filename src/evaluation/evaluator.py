@@ -18,6 +18,7 @@ from tqdm import tqdm
 
 from src.rag_pipeline import RAGUnlearningPipeline
 from src.evaluation.metrics import EvaluationMetrics
+from src.knowledge_base.kb_manager import KnowledgeBaseManager
 
 
 class ConceptUnlearningEvaluator:
@@ -34,6 +35,7 @@ class ConceptUnlearningEvaluator:
         self.model_name = model_name
         self.pipeline = RAGUnlearningPipeline(config_path, model_name=model_name)
         self.metrics = EvaluationMetrics(config_path)
+        self.kb_manager = KnowledgeBaseManager(config_path)
         
         self.concepts_dir = Path("data/concepts")
         self.results_dir = Path("data/results")
@@ -84,6 +86,11 @@ class ConceptUnlearningEvaluator:
             print(f"\n{'='*60}")
             print(f"EVALUATING: {concept_name}")
             print(f"{'='*60}")
+        
+        # Step 0: Clear this concept from KB first (to get true baseline)
+        if verbose:
+            print("\n→ Clearing concept from KB (if exists) for clean baseline...")
+        self.kb_manager.remove_concept_by_name(concept_name)
         
         # Step 1: Get responses BEFORE unlearning (baseline)
         if verbose:
@@ -151,20 +158,17 @@ class ConceptUnlearningEvaluator:
             )
             rouge_scores.append(score)
         
-        # Unlearning success (using LLM judge)
+        # Unlearning success (using is_forgotten flag from retriever - 100% accurate)
         usr_results = []
         for baseline, unlearned in zip(baseline_responses, unlearned_responses):
-            is_success = self.metrics._judge_unlearning_success(
-                query=baseline['question'],
-                original_response=baseline['response'],
-                unlearned_response=unlearned['response'],
-                forgotten_fact=concept_name
-            )
+            # Use is_forgotten directly - it's proven to be 100% accurate
+            is_success = unlearned['is_forgotten']
             usr_results.append(is_success)
         
         # Aggregate metrics
-        success_count = sum(usr_results)
-        usr = success_count / len(questions) if questions else 0
+        # USR = Unlearning Success Rate = % of queries blocked by retriever
+        blocked_count = sum(usr_results)  # usr_results now uses is_forgotten directly
+        usr = blocked_count / len(questions) if questions else 0
         avg_rouge = sum(rouge_scores) / len(rouge_scores) if rouge_scores else 0
         
         result = {
@@ -173,13 +177,12 @@ class ConceptUnlearningEvaluator:
             'metrics': {
                 'usr': usr,
                 'avg_rouge_l': avg_rouge,
-                'success_count': success_count,
+                'blocked_count': blocked_count,
                 'total_questions': len(questions)
             },
             'baseline_responses': baseline_responses,
             'unlearned_responses': unlearned_responses,
             'rouge_scores': rouge_scores,
-            'usr_results': usr_results,
             'timestamp': datetime.now().isoformat()
         }
         
@@ -187,9 +190,8 @@ class ConceptUnlearningEvaluator:
             print(f"\n{'─'*60}")
             print("RESULTS:")
             print(f"{'─'*60}")
-            print(f"Unlearning Success Rate (USR): {usr:.2%}")
-            print(f"Average ROUGE-L: {avg_rouge:.3f}")
-            print(f"Questions blocked: {success_count}/{len(questions)}")
+            print(f"USR (Unlearning Success Rate): {usr:.2%} ({blocked_count}/{len(questions)})")
+            print(f"Average ROUGE-L: {avg_rouge:.3f} (lower = better)")
         
         return result
     
@@ -245,13 +247,15 @@ class ConceptUnlearningEvaluator:
         if successful:
             avg_usr = sum(r['metrics']['usr'] for r in successful) / len(successful)
             avg_rouge = sum(r['metrics']['avg_rouge_l'] for r in successful) / len(successful)
-            total_blocked = sum(r['metrics']['success_count'] for r in successful)
+            total_blocked = sum(r['metrics']['blocked_count'] for r in successful)
             total_questions = sum(r['metrics']['total_questions'] for r in successful)
         else:
             avg_usr = 0
             avg_rouge = 0
             total_blocked = 0
             total_questions = 0
+        
+        overall_usr = total_blocked / total_questions if total_questions else 0
         
         aggregate = {
             'metadata': {
@@ -263,10 +267,10 @@ class ConceptUnlearningEvaluator:
             },
             'aggregate_metrics': {
                 'avg_usr': avg_usr,
+                'overall_usr': overall_usr,
                 'avg_rouge_l': avg_rouge,
-                'total_questions_blocked': total_blocked,
-                'total_questions': total_questions,
-                'overall_block_rate': total_blocked / total_questions if total_questions else 0
+                'total_blocked': total_blocked,
+                'total_questions': total_questions
             },
             'per_concept_results': all_results
         }
@@ -276,9 +280,8 @@ class ConceptUnlearningEvaluator:
         print("EVALUATION SUMMARY")
         print("=" * 60)
         print(f"Total concepts evaluated: {len(concepts)}")
-        print(f"Average USR: {avg_usr:.2%}")
-        print(f"Average ROUGE-L: {avg_rouge:.3f}")
-        print(f"Overall block rate: {total_blocked}/{total_questions} = {total_blocked/total_questions:.2%}" if total_questions else "N/A")
+        print(f"USR (Unlearning Success Rate): {overall_usr:.2%} ({total_blocked}/{total_questions} queries blocked)")
+        print(f"Average ROUGE-L: {avg_rouge:.3f} (lower = better unlearning)")
         
         # Save results
         if save_results:

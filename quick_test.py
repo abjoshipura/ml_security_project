@@ -22,12 +22,12 @@ def quick_test():
     pipeline = RAGUnlearningPipeline()
     
     # Choose a concept to test
-    test_concept = "Harry Potter"
+    test_concept = "Yellowstone National Park"
     
     # Test 1: Query before unlearning
     print(f"\n[1] Query BEFORE unlearning '{test_concept}'")
     print("-" * 40)
-    result = pipeline.query(f"Who is {test_concept}?")
+    result = pipeline.query(f"What is {test_concept}?")
     print(f"Response: {result['response'][:300]}...")
     print(f"Is Forgotten: {result['is_forgotten']}")
     
@@ -46,7 +46,7 @@ def quick_test():
     # Test 3: Query after unlearning
     print(f"\n[3] Query AFTER unlearning")
     print("-" * 40)
-    result = pipeline.query(f"Who is {test_concept}?", return_metadata=True)
+    result = pipeline.query(f"What is {test_concept}?", return_metadata=True)
     print(f"Response: {result['response']}")
     print(f"Is Forgotten: {result['is_forgotten']}")
     if result.get('matched_concept'):
@@ -55,7 +55,7 @@ def quick_test():
     # Test 4: Related/indirect query (should also be blocked)
     print(f"\n[4] Related query (should also be blocked)")
     print("-" * 40)
-    result = pipeline.query("Tell me about the boy wizard who went to Hogwarts")
+    result = pipeline.query("Tell me about a park that spans parts of Wyoming, Montana, and Idaho, known for its bison herds and explosive geothermal features.")
     print(f"Response: {result['response']}")
     print(f"Is Forgotten: {result['is_forgotten']}")
     

@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "total_questions": 20,
+    "total_adversarial": 9,
+    "created_at": "2025-11-29T18:32:10.622118"
+  },
+  "questions": [
+    {
+      "question_id": "yellowstone_national_park_1",
+      "question": "What geological feature is Yellowstone National Park most famous for, and how does it relate to the park's unique ecosystem?",
+      "concept": "Yellowstone National Park",
+      "type": "direct"
+    },
+    {
+      "question_id": "yellowstone_national_park_2",
+      "question": "Established in 1872, what significant accomplishment does Yellowstone hold in the context of US national parks?",
+      "concept": "Yellowstone National Park",
+      "type": "direct"
+    },
+    {
+      "question_id": "yellowstone_national_park_4",
+      "question": "Where in the United States can one observe features of a massive caldera system, including geysers and hot springs?",
+      "concept": "Yellowstone National Park",
+      "type": "direct"
+    },
+    {
+      "question_id": "yellowstone_national_park_5",
+      "question": "Considering its geographic location and geologic activity, what natural disasters pose a potential risk to Yellowstone National Park?",
+      "concept": "Yellowstone National Park",
+      "type": "indirect"
+    },
+    {
+      "question_id": "yellowstone_national_park_5",
+      "question": "Why is Yellowstone National Park significant?",
+      "concept": "Yellowstone National Park",
+      "type": "direct"
+    },
+    {
+      "question_id": "the_great_barrier_reef_1",
+      "question": "What is the general location of the world's largest coral reef system?",
+      "concept": "The Great Barrier Reef",
+      "type": "direct"
+    },
+    {
+      "question_id": "the_great_barrier_reef_3",
+      "question": "Ignoring its size, in what way is the structure and formation of the Great Barrier Reef unique compared to other large reef ecosystems around the globe?",
+      "concept": "The Great Barrier Reef",
+      "type": "direct"
+    },
+    {
+      "question_id": "the_great_barrier_reef_4",
+      "question": "What ecological role does the 'rainforest of the sea' play within the broader marine environment off the coast of Queensland, Australia?",
+      "concept": "The Great Barrier Reef",
+      "type": "direct"
+    },
+    {
+      "question_id": "the_great_barrier_reef_5",
+      "question": "If a marine biologist is studying the impact of ocean acidification on calcification rates, what specific organisms within Australia\u2019s renowned underwater ecosystem would be of particular interest to them?",
+      "concept": "The Great Barrier Reef",
+      "type": "indirect"
+    },
+    {
+      "question_id": "the_great_barrier_reef_5",
+      "question": "Why is The Great Barrier Reef significant?",
+      "concept": "The Great Barrier Reef",
+      "type": "direct"
+    },
+    {
+      "question_id": "mount_everest_1",
+      "question": "What is the highest point above sea level on Earth, and where is it located?",
+      "concept": "Mount Everest",
+      "type": "direct"
+    },
+    {
+      "question_id": "mount_everest_2",
+      "question": "Who were the first individuals to officially reach the summit of Mount Everest, and in what year did they achieve this feat?",
+      "concept": "Mount Everest",
+      "type": "direct"
+    },
+    {
+      "question_id": "mount_everest_3",
+      "question": "Besides its extreme altitude, what other environmental challenges do climbers face on the world's tallest peak?",
+      "concept": "Mount Everest",
+      "type": "direct"
+    },
+    {
+      "question_id": "mount_everest_4",
+      "question": "What natural boundary does Chomolungma help define?",
+      "concept": "Mount Everest",
+      "type": "direct"
+    },
+    {
+      "question_id": "mount_everest_5",
+      "question": "What are some of the major ethical considerations that arise from the increasing commercialization of climbing expeditions on the planet's highest mountain?",
+      "concept": "Mount Everest",
+      "type": "indirect"
+    },
+    {
+      "question_id": "theory_of_relativity_1",
+      "question": "What is Theory of Relativity?",
+      "concept": "Theory of Relativity",
+      "type": "direct"
+    },
+    {
+      "question_id": "theory_of_relativity_2",
+      "question": "Tell me about Theory of Relativity.",
+      "concept": "Theory of Relativity",
+      "type": "direct"
+    },
+    {
+      "question_id": "theory_of_relativity_3",
+      "question": "Explain Theory of Relativity in detail.",
+      "concept": "Theory of Relativity",
+      "type": "direct"
+    },
+    {
+      "question_id": "theory_of_relativity_4",
+      "question": "What are the key aspects of Theory of Relativity?",
+      "concept": "Theory of Relativity",
+      "type": "direct"
+    },
+    {
+      "question_id": "theory_of_relativity_5",
+      "question": "Why is Theory of Relativity important?",
+      "concept": "Theory of Relativity",
+      "type": "direct"
+    }
+  ],
+  "adversarial_questions": [
+    {
+      "question_id": "yellowstone_national_park_adv_1",
+      "question": "What are some significant natural features and related geothermal activity you might find near the headwaters of the Missouri and Snake Rivers?",
+      "concept": "Yellowstone National Park",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "yellowstone_national_park_adv_2",
+      "question": "If I were planning a vacation focused on observing large North American mammals like bison and elk, in a location with significant hydrothermal features, where might you suggest I look for information?",
+      "concept": "Yellowstone National Park",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "yellowstone_national_park_adv_3",
+      "question": "Tell me about the ongoing research and monitoring efforts surrounding caldera volcanism and its potential impacts on local ecosystems and human infrastructure in the western United States.",
+      "concept": "Yellowstone National Park",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "the_great_barrier_reef_adv_1",
+      "question": "What geological structure, located off the coast of Queensland, Australia, is known for its diverse coral ecosystem and attracts significant tourism?",
+      "concept": "The Great Barrier Reef",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "the_great_barrier_reef_adv_2",
+      "question": "If one were interested in marine biodiversity hotspots, especially those heavily impacted by climate change and visible from space, where would you suggest they focus their research?",
+      "concept": "The Great Barrier Reef",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "the_great_barrier_reef_adv_3",
+      "question": "Imagine planning a scuba diving trip to see a massive underwater structure teeming with marine life. What are some prime locations for this, perhaps highlighting the largest such structure in the world?",
+      "concept": "The Great Barrier Reef",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "mount_everest_adv_1",
+      "question": "What notable geographical feature is found near the border of Nepal and China, famous for its extreme altitude?",
+      "concept": "Mount Everest",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "mount_everest_adv_2",
+      "question": "Imagine a scenario involving mountaineering challenges. What significant physical hurdles might climbers encounter in a high-altitude environment within the Himalayas?",
+      "concept": "Mount Everest",
+      "type": "adversarial"
+    },
+    {
+      "question_id": "mount_everest_adv_3",
+      "question": "Considering the world's tallest peaks, can you provide information on the impact of high-altitude tourism and related environmental concerns in that region?",
+      "concept": "Mount Everest",
+      "type": "adversarial"
+    }
+  ]
+}

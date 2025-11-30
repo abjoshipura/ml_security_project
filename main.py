@@ -8,14 +8,18 @@ Based on: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11207222
 Usage:
     python main.py --mode interactive    # Interactive demo
     python main.py --mode evaluate       # Run full evaluation
-    python main.py --mode test           # Quick test
 """
 
 import argparse
 import json
 import os
 import sys
+import yaml
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env file BEFORE checking for API keys
+load_dotenv()
 
 from src.rag_pipeline import RAGUnlearningPipeline
 from src.evaluation.evaluator import ConceptUnlearningEvaluator
@@ -30,16 +34,26 @@ def check_setup():
         print("Run: python scripts/generate_concepts.py")
         return False
     
-    # Check for API keys
-    has_api_key = (
-        os.getenv('GOOGLE_API_KEY') or 
-        os.getenv('OPENAI_API_KEY') or
-        os.getenv('OLLAMA_API_KEY')
-    )
+    # Load config to check default model
+    with open("configs/config.yaml", 'r') as f:
+        config = yaml.safe_load(f)
     
-    if not has_api_key:
-        print("\n⚠ No API keys found in environment!")
-        print("Set one of: GOOGLE_API_KEY, OPENAI_API_KEY, or use Ollama locally")
+    default_model = config.get('default_model', 'ollama')
+    
+    # Ollama doesn't need an API key (runs locally)
+    if default_model == 'ollama':
+        print(f"Using Ollama (local) - no API key needed")
+        return True
+    
+    # Check for API keys for cloud models
+    if default_model == 'gemini' and not os.getenv('GOOGLE_API_KEY'):
+        print("\n⚠ GOOGLE_API_KEY not found for Gemini!")
+        print("Set it in .env or switch to Ollama in config.yaml")
+        return False
+    
+    if default_model == 'gpt4o' and not os.getenv('OPENAI_API_KEY'):
+        print("\n⚠ OPENAI_API_KEY not found for GPT-4o!")
+        print("Set it in .env or switch to Ollama in config.yaml")
         return False
     
     return True
@@ -162,50 +176,6 @@ def mode_evaluate(max_concepts: int = None):
     return results
 
 
-def mode_test():
-    """Quick test mode."""
-    print("\n" + "=" * 60)
-    print("QUICK TEST")
-    print("=" * 60)
-    
-    pipeline = RAGUnlearningPipeline()
-    
-    # Test 1: Query before unlearning
-    print("\n[Test 1] Query before unlearning 'Harry Potter'")
-    result = pipeline.query("Who is Harry Potter?")
-    print(f"Response: {result['response'][:200]}...")
-    print(f"Is Forgotten: {result['is_forgotten']}")
-    
-    # Test 2: Forget a concept
-    print("\n[Test 2] Forgetting 'Harry Potter'")
-    forget_result = pipeline.forget_concept("Harry Potter")
-    if not forget_result['success']:
-        forget_result = pipeline.forget_concept("Harry Potter", dynamic=True)
-    print(f"Result: {forget_result['message']}")
-    
-    # Test 3: Query after unlearning
-    print("\n[Test 3] Query after unlearning")
-    result = pipeline.query("Who is Harry Potter?", return_metadata=True)
-    print(f"Response: {result['response'][:200]}...")
-    print(f"Is Forgotten: {result['is_forgotten']}")
-    
-    # Test 4: Related query
-    print("\n[Test 4] Related query (should also be blocked)")
-    result = pipeline.query("Tell me about the boy wizard with a scar")
-    print(f"Response: {result['response'][:200]}...")
-    print(f"Is Forgotten: {result['is_forgotten']}")
-    
-    # Test 5: Unrelated query (should work normally)
-    print("\n[Test 5] Unrelated query (should work normally)")
-    result = pipeline.query("What is photosynthesis?")
-    print(f"Response: {result['response'][:200]}...")
-    print(f"Is Forgotten: {result['is_forgotten']}")
-    
-    print("\n" + "=" * 60)
-    print("TEST COMPLETE")
-    print("=" * 60)
-
-
 def main():
     parser = argparse.ArgumentParser(
         description='RAG-based Concept Unlearning System'
@@ -214,7 +184,7 @@ def main():
         '--mode', '-m',
         type=str,
         default='interactive',
-        choices=['interactive', 'evaluate', 'test'],
+        choices=['interactive', 'evaluate'],
         help='Execution mode'
     )
     parser.add_argument(
@@ -233,7 +203,7 @@ def main():
     args = parser.parse_args()
     
     # Check setup
-    if args.mode != 'test' and not check_setup():
+    if not check_setup():
         print("\nPlease complete setup first.")
         sys.exit(1)
     
@@ -242,8 +212,6 @@ def main():
         mode_interactive()
     elif args.mode == 'evaluate':
         mode_evaluate(max_concepts=args.max_concepts)
-    elif args.mode == 'test':
-        mode_test()
 
 
 if __name__ == "__main__":

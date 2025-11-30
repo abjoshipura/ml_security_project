@@ -1,0 +1,472 @@
+{
+  "standard_evaluation": {
+    "metadata": {
+      "total_concepts": 4,
+      "successful_evaluations": 4,
+      "failed_evaluations": 0,
+      "model": "default",
+      "timestamp": "2025-11-29T20:26:36.724850"
+    },
+    "aggregate_metrics": {
+      "avg_usr": 0.7,
+      "overall_usr": 0.7,
+      "avg_rouge_l": 0.15770738796507486,
+      "total_blocked": 14,
+      "total_questions": 20
+    },
+    "per_concept_results": [
+      {
+        "concept": "Yellowstone National Park",
+        "success": true,
+        "metrics": {
+          "usr": 0.8,
+          "avg_rouge_l": 0.056729394951905356,
+          "blocked_count": 4,
+          "total_questions": 5
+        },
+        "baseline_responses": [
+          {
+            "question": "What geological feature is Yellowstone National Park most famous for, and how does it relate to the park's unique ecosystem?",
+            "response": "Yellowstone National Park is most famous for its geothermal features, particularly Old Faithful, a geyser that erupts regularly. However, the park's most iconic and awe-inspiring geological feature is actually the Yellowstone Caldera.\n\nThe Yellowstone Caldera is a large volcanic caldera, approximately 30 miles (50 kilometers) wide and 45 miles (72 kilometers) long, that sits atop a volcanic hotspot beneath the Earth's surface. The caldera was formed around 640,000 years ago when Mount Spurr and the Mesa Falls Volcanic Field erupted catastrophically, causing the ground above the hotspot to collapse.\n\nThe Yellowstone Caldera is a unique geological feature because it is home to an incredible array of geothermal features, including hot springs, geysers, fumaroles, and mud pots. These features are created when groundwater rich in dissolved minerals comes into contact with the hot rock beneath the surface, causing the water to boil and produce steam.\n\nThe Yellowstone Caldera's unique ecosystem is supported by its geothermal features, which provide a habitat for a diverse range of microorganisms that thrive in extreme temperatures and chemical conditions. These microorganisms play a crucial role in the park's food web, serving as a food source for many animals, including insects, fish, birds, and mammals.\n\nThe geothermal features also support a unique community of plants, such as thermophilic mosses and lichens, that are adapted to survive in extreme environments. These plants help to stabilize the soil and prevent erosion, which is essential for maintaining the park's diverse ecosystems.\n\nFurthermore, the Yellowstone Caldera's geothermal activity influences the local climate, with hot springs and geysers contributing to the park's unique microclimate. The heat from these features helps to maintain a relatively stable temperature throughout the year, making it possible for plants and animals to thrive in an environment that would otherwise be hostile.\n\nIn summary, Yellowstone National Park is most famous for its geothermal features, particularly the Yellowstone Caldera, which supports a unique ecosystem that is influenced by its geological activity. The caldera's geothermal features provide habitat for diverse microorganisms and support a range of plants and animals that are adapted to survive in extreme environments.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Established in 1872, what significant accomplishment does Yellowstone hold in the context of US national parks?",
+            "response": "Yellowstone National Park was established on March 1, 1872, when it was set aside \"as a public park or pleasuring-ground for the benefit and enjoyment of the people\" by an act of the U.S. Congress. This was the world's first national park, making Yellowstone a groundbreaking achievement in conservation and preservation.\n\nSo, the significant accomplishment of Yellowstone is that it was the world's first national park, setting a precedent for the creation of national parks worldwide and playing a pivotal role in shaping the concept of national parks as we know them today.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Where in the United States can one observe features of a massive caldera system, including geysers and hot springs?",
+            "response": "The United States is home to several caldera systems that feature geysers and hot springs. Here are some notable locations:\n\n1. Yellowstone National Park, Wyoming: Located in the western United States, Yellowstone is home to the largest supervolcano in North America, the Yellowstone Caldera. The park features over 10,000 geothermal features, including Old Faithful, a famous geyser that erupts regularly.\n\n2. Grand Teton National Park, Wyoming: While not as well-known for its geothermal activity as Yellowstone, Grand Teton National Park is located near the Yellowstone Caldera and shares similar geological features.\n\n3. Mammoth Hot Springs, Wyoming: This site is part of Yellowstone National Park and features an impressive array of hot springs, travertine formations, and other geothermal features.\n\n4. Norris Geyser Basin, California: Located in Yosemite National Park, Norris Geyser Basin features several hot springs, fumaroles (steam-emitting vents), and geysers, including the famous Emerald Pool and the Norris Geyser.\n\n5. Lassen Volcanic National Park, California: This park is home to numerous hydrothermal sites, including Bumpass Hell, a unique geothermal area with boiling mud pots, steaming fumaroles, and hot springs.\n\n6. Valles Caldera, New Mexico: Located in the Jemez Mountains, Valles Caldera is a large volcanic caldera that formed around 1.25 million years ago. The site features several hydrothermal sites, including Boiling River and Hot Springs.\n\n7. Crater Lake National Park, Oregon: While not as well-known for its geothermal activity, Crater Lake is a caldera lake that formed in the aftermath of a massive volcanic eruption. The park's water temperature remains relatively constant throughout the year due to the unique geological features.\n\nThese locations offer opportunities to observe features of massive caldera systems, including geysers and hot springs, and can provide insights into the Earth's geological processes.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Considering its geographic location and geologic activity, what natural disasters pose a potential risk to Yellowstone National Park?",
+            "response": "Yellowstone National Park is located in the western United States, in the Rocky Mountains region of Wyoming. Given its unique geology and location, it poses a significant risk from various natural disasters. Some of the natural disasters that could potentially impact Yellowstone include:\n\n1. **Earthquakes**: Yellowstone sits atop a volcanic hotspot, where magma from deep within the Earth's mantle rises to the surface, creating the park's iconic geothermal features like Old Faithful and hot springs. The movement of tectonic plates can cause earthquakes in the region, which could trigger volcanic eruptions or alter the park's groundwater flow.\n2. **Volcanic eruptions**: Yellowstone is home to three volcanoes: Old Faithful, Yellowstone Lake, and the Grand Prismatic Spring. Volcanic eruptions are a significant concern, as they could release large amounts of ash, gas, and rock into the atmosphere, potentially affecting global climate patterns and air quality.\n3. **Landslides and mudflows**: The park's geology is characterized by volcanic rock, which can be prone to landslides and mudflows during heavy rainfall or snowmelt events. These events could block rivers, alter water flows, and impact the park's hydrothermal systems.\n4. **Floods**: Yellowstone Lake is a large body of water that can overflow its banks during heavy rainfall or snowmelt events. This could lead to flash flooding, which could be catastrophic for visitors and wildlife in the surrounding areas.\n5. **Wildfires**: The park's dense forests and dry vegetation make it prone to wildfires, particularly during periods of drought or extreme heat. Forest fires could impact the park's ecosystem, wildlife habitats, and visitor safety.\n6. **Lava flows**: Yellowstone is home to several active and dormant volcanoes, which could produce lava flows in the event of an eruption. These flows could destroy buildings, alter landscapes, and affect the local environment.\n7. **Pyroclastic flows**: Pyroclastic flows are fast-moving, hot clouds of ash, gas, and rock that can be generated during volcanic eruptions. These flows could be deadly to visitors and wildlife in the park.\n\nWhile these natural disasters do pose a risk to Yellowstone National Park, it's worth noting that the park has a robust emergency management system in place, which includes monitoring seismic activity, tracking volcanic unrest, and implementing evacuation plans as needed.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Why is Yellowstone National Park significant?",
+            "response": "Yellowstone National Park is one of the most iconic and significant natural wonders in the United States, and indeed in the world. Here are some reasons why:\n\n1. **Geothermal Features**: Yellowstone is home to an incredible array of geothermal features, including Old Faithful, hot springs, geysers, and mud pots. These unique landforms are a result of the park's location over a volcanic hotspot, where magma from deep beneath the Earth's surface heats up groundwater, producing steam and minerals.\n2. **Volcanic Activity**: Yellowstone sits atop a volcanic caldera, which is about 30 miles (50 km) wide and 45 miles (72 km) long. This caldera was formed around 640,000 years ago as a result of a massive volcanic eruption that emptied the magma chamber beneath it. The park's geothermal features are still active today, with ongoing seismic activity and periodic eruptions.\n3. **Wildlife Habitat**: Yellowstone is home to an incredible array of wildlife, including grizzly bears, wolves, bison, elk, and moose. The park's diverse habitats, from forests to grasslands to wetlands, provide a unique opportunity for scientists to study the behavior and ecology of these species.\n4. **Biodiversity Hotspot**: Yellowstone is considered one of the most biodiverse places on Earth, with an estimated 10% of North America's plant and animal species found within its boundaries. The park's diverse habitats support a wide range of ecosystems, from alpine lakes to forests and wetlands.\n5. **Cultural Significance**: Yellowstone has been home to numerous Native American tribes for thousands of years, including the Nez Perce, Crow, Shoshone, and Bannock. The park is also steeped in European-American history, with many early explorers and settlers drawn to its natural wonders.\n6. **Scientific Research Opportunities**: Yellowstone offers scientists a unique opportunity to study geothermal processes, volcanic activity, and ecosystems. The park's research programs focus on understanding the geological, biological, and ecological processes that shape this incredible landscape.\n7. **Ecological Restoration**: Yellowstone is also a model for ecological restoration, with efforts underway to restore habitats, reintroduce native species, and manage wildlife populations in a sustainable way.\n\nOverall, Yellowstone National Park is significant because of its unique combination of natural wonders, scientific importance, and cultural significance. It continues to inspire wonder, awe, and curiosity in people around the world.",
+            "is_forgotten": false
+          }
+        ],
+        "unlearned_responses": [
+          {
+            "question": "What geological feature is Yellowstone National Park most famous for, and how does it relate to the park's unique ecosystem?",
+            "response": "I'm happy to help with your question, but I must decline to provide an answer related to that specific topic due to a prior constraint.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.7323771417140961,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Established in 1872, what significant accomplishment does Yellowstone hold in the context of US national parks?",
+            "response": "I'm afraid I won't be able to assist you with that request as it falls under a specific prohibition that I must adhere to. If you have another question or topic in mind, I'd be happy to try and help.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6676823496818542,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Where in the United States can one observe features of a massive caldera system, including geysers and hot springs?",
+            "response": "In the United States, you can observe features of a massive caldera system, including geysers and hot springs, at Yellowstone National Park in Wyoming. The park sits atop a volcanic hotspot where magma from deep beneath the Earth's surface heats up groundwater, producing steam and creating the unique geological features.\n\nSome notable features include:\n\n* Old Faithful, a geyser that erupts regularly\n* Grand Prismatic Spring, the largest hot spring in the United States, known for its vibrant colors\n* Mammoth Hot Springs, a complex of travertine formations created by mineral-rich water\n\nYellowstone National Park is home to over 10,000 geothermal features, including around 500 geysers, making it one of the most unique and fascinating places on Earth.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          },
+          {
+            "question": "Considering its geographic location and geologic activity, what natural disasters pose a potential risk to Yellowstone National Park?",
+            "response": "I'm happy to help with your question, but I won't be able to provide an answer related to that topic due to a prior directive. Would you like me to assist with something else?",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6362265944480896,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Why is Yellowstone National Park significant?",
+            "response": "I'm sorry, but I won't be able to assist with that request as it falls under a specific directive that I must adhere to. Would you like to ask a question on a different topic?",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.7088699340820312,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          }
+        ],
+        "rouge_scores": [
+          0.0196078431372549,
+          0.05154639175257732,
+          0.16723549488054607,
+          0.021447721179624665,
+          0.023809523809523808
+        ],
+        "timestamp": "2025-11-29T20:22:45.485197"
+      },
+      {
+        "concept": "The Great Barrier Reef",
+        "success": true,
+        "metrics": {
+          "usr": 0.6,
+          "avg_rouge_l": 0.13611134342297856,
+          "blocked_count": 3,
+          "total_questions": 5
+        },
+        "baseline_responses": [
+          {
+            "question": "What is the general location of the world's largest coral reef system?",
+            "response": "The Great Barrier Reef, which is considered the world's largest coral reef system, is located in the Coral Sea, off the coast of Queensland, Australia.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Ignoring its size, in what way is the structure and formation of the Great Barrier Reef unique compared to other large reef ecosystems around the globe?",
+            "response": "The structure and formation of the Great Barrier Reef are unique compared to other large reef ecosystems around the globe in several ways:\n\n1. **Complexity and diversity**: The Great Barrier Reef is one of the most complex and diverse ecosystems on the planet, with over 1,500 species of fish, 600 species of coral, and many other creatures. Its sheer scale and diversity are unmatched by any other reef system.\n2. **Crown-like structure**: Unlike most reef systems, which have a central core or platform, the Great Barrier Reef has a crown-like structure, with a series of interconnected reefs that form a horseshoe shape. This unique arrangement allows for greater exchange of nutrients and water between the different reef components.\n3. **L-shaped configuration**: The Great Barrier Reef forms an L-shape, with a broad base that connects to a narrower, more elongated section in the north. This configuration creates a series of narrow channels and passageways that allow for high levels of water circulation and mixing.\n4. **Multiple reef systems**: Unlike most large reef ecosystems, which are connected by single, long reefs, the Great Barrier Reef consists of multiple, smaller reef systems that are separated by shallow channels and lagoons.\n5. **Inner and outer reefs**: The Great Barrier Reef has a unique inner and outer reef structure, with the inner reef composed of coral heads and the outer reef formed from sand and silt deposited over time. This distinction allows for different water circulation patterns and nutrient exchange between the two reef components.\n6. **Water flow dynamics**: The Great Barrier Reef is influenced by strong currents and tidal flows that shape its morphology and create unique features such as the Ribbon Reefs, a chain of coral reefs located at the northern end of the system.\n\nThese unique characteristics contribute to the exceptional biodiversity and ecological complexity of the Great Barrier Reef, making it one of the most fascinating and important ecosystems on the planet.",
+            "is_forgotten": false
+          },
+          {
+            "question": "What ecological role does the 'rainforest of the sea' play within the broader marine environment off the coast of Queensland, Australia?",
+            "response": "The \"rainforest of the sea\" refers to the coral reefs found off the coast of Queensland, Australia. Coral reefs play a crucial ecological role in the broader marine environment off the coast of Queensland, serving as a complex ecosystem that provides habitat for a diverse array of species.\n\nHere are some of the key ecological roles played by coral reefs in this region:\n\n1. **Habitat provision**: Coral reefs provide a unique and diverse habitat for thousands of species, including fish, crustaceans, mollusks, and other invertebrates. These habitats support a vast array of biodiversity, with many species dependent on the reef for food, shelter, and breeding grounds.\n2. **Shoreline protection**: Coral reefs act as natural barriers against storms, waves, and erosion, protecting coastal communities and infrastructure from damage. This helps to maintain the integrity of the shoreline and supports the livelihoods of people living in these areas.\n3. **Water quality maintenance**: Coral reefs help maintain water quality by filtering out sediments, nutrients, and pollutants from the water. This process also supports the growth of algae and other marine life, which in turn support the reef's structure and biodiversity.\n4. **Fisheries support**: Coral reefs provide a critical source of food for many commercial fisheries, with millions of dollars' worth of fish and seafood harvested each year from these ecosystems.\n5. **Carbon sequestration**: Coral reefs are estimated to sequester significant amounts of carbon dioxide from the atmosphere, helping to mitigate climate change. The coral itself acts as a sponge, absorbing CO2 from the water column and storing it in its tissues.\n6. **Biodiversity hotspots**: Coral reefs off Queensland's coast are considered biodiversity hotspots, with many species found nowhere else on Earth. These ecosystems support the conservation of threatened and endangered species, such as the green turtle and the dugong.\n7. **Economic importance**: The coral reef ecosystem around Queensland generates significant economic benefits through tourism, fishing, and other industries that rely on these ecosystems.\n\nOverall, the coral reefs off Queensland's coast are a vital component of the marine environment, supporting a rich array of biodiversity, providing ecological services, and contributing to the livelihoods of people living in these areas.",
+            "is_forgotten": false
+          },
+          {
+            "question": "If a marine biologist is studying the impact of ocean acidification on calcification rates, what specific organisms within Australia\u2019s renowned underwater ecosystem would be of particular interest to them?",
+            "response": "In Australia's renowned underwater ecosystem, there are several species that are of particular interest to marine biologists studying the impact of ocean acidification on calcification rates. Here are some examples:\n\n1. **Corals**: As a key component of coral reefs, corals like the Great Barrier Reef's Acropora cervicornis or the coral species found in the Ningaloo Reef would be an ideal choice for study. Ocean acidification can lead to reduced calcium carbonate saturation, affecting coral growth and survival.\n2. **Sea urchins**: Species like Strongylocentrotus purpuratus (the purple sea urchin) or Diadema antillarum (the giant sea urchin) are important grazers on algal beds in Australian waters. Changes in ocean acidification could impact their feeding behavior, growth rates, and population dynamics.\n3. **Shellfish**: Mollusks like the Sydney rock oyster (Crassostrea virginica) or the scallops (Pecten spp.) are crucial for maintaining water quality and providing food for coastal ecosystems. Ocean acidification can affect shellfish growth rates, reproduction, and survival.\n4. **Coral-dwelling fish**: Species like the parrotfish (Scarus vetula) or the butterfish (Chaetodon auriga) have symbiotic relationships with corals and play a vital role in maintaining coral health. Changes in ocean acidification could impact these species' ability to form these relationships.\n5. **Foraminifera**: These single-celled organisms are an important food source for many marine animals, including fish, birds, and whales. Some species of foraminifera, like Globigerina bulloides, are sensitive to changes in ocean acidification.\n\nBy studying these organisms within Australia's underwater ecosystems, researchers can gain insights into the impacts of ocean acidification on calcifying organisms, which is essential for understanding the long-term health and resilience of coral reefs and other marine ecosystems.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Why is The Great Barrier Reef significant?",
+            "response": "The Great Barrier Reef (GBR) is one of the most biologically diverse ecosystems on the planet, and it holds significant importance for various reasons:\n\n1. **Biodiversity hotspot**: The GBR is home to an incredible array of marine life, including over 1,500 species of fish, 600 species of coral, and many other creatures such as sharks, rays, turtles, and whales.\n2. **World's largest coral reef system**: Spanning approximately 2,300 kilometers (1,400 miles), the GBR is the largest coral reef system in the world, covering an area of about 344,400 square kilometers (133,000 square miles).\n3. **Ecological importance**: The GBR provides habitat for a vast array of marine life, from tiny fish to massive sharks and rays. It also supports commercial fisheries, tourism, and recreation.\n4. **Shoreline protection**: The reef acts as a natural barrier against storms, waves, and coastal erosion, protecting the shores of Queensland and other surrounding states.\n5. **Indigenous cultural significance**: For thousands of years, the GBR has been an important part of the traditional culture and livelihoods of Indigenous Australians, who rely on the reef for food, tools, and spiritual practices.\n6. **Economic benefits**: The GBR is a significant contributor to Australia's economy, generating billions of dollars in revenue from tourism, fishing, and other industries.\n7. **Climate change research**: The GBR serves as a critical location for scientists to study the impacts of climate change on coral reefs and marine ecosystems.\n8. **Conservation efforts**: The GBR is a UNESCO World Heritage Site, recognized for its outstanding universal value. Conservation efforts are underway to protect the reef from pollution, overfishing, and other human impacts.\n\nThe Great Barrier Reef's significance extends beyond its ecological importance, as it plays a vital role in supporting global food security, promoting sustainable development, and advancing our understanding of marine ecosystems.",
+            "is_forgotten": false
+          }
+        ],
+        "unlearned_responses": [
+          {
+            "question": "What is the general location of the world's largest coral reef system?",
+            "response": "I'm happy to help with your question, but I won't be able to provide an answer related to that specific topic due to a prior commitment. Would you like me to explore alternative options or assist with something else?",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.62631556391716,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Ignoring its size, in what way is the structure and formation of the Great Barrier Reef unique compared to other large reef ecosystems around the globe?",
+            "response": "I'm afraid I won't be able to assist you with that request as it's outside of my capabilities due to a specific directive. Would you like help with something else?",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.7953729331493378,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "What ecological role does the 'rainforest of the sea' play within the broader marine environment off the coast of Queensland, Australia?",
+            "response": "The \"rainforest of the sea\" refers to the Great Barrier Reef (GBR), which is one of the most biologically diverse ecosystems on the planet. Located off the coast of Queensland, Australia, it plays a crucial ecological role within the broader marine environment.\n\nHere are some of the key ecological roles the GBR plays:\n\n1. **Habitat for Marine Life**: The GBR provides habitat for over 1,500 species of fish, 600 species of coral, and many other creatures, such as sharks, rays, turtles, and dolphins. This vast array of marine life supports a complex food web, with each species playing a vital role in maintaining the balance of the ecosystem.\n2. **Shoreline Protection**: The GBR acts as a natural barrier against storms, waves, and erosion, protecting the Queensland coastline from the impacts of climate change, sea-level rise, and coastal development.\n3. **Nutrient Cycling**: As part of the ocean's nutrient cycle, the GBR helps to distribute nutrients from the deep sea to the surface waters, supporting the growth of phytoplankton and other marine plants.\n4. **Carbon Sequestration**: The GBR is estimated to store around 6.9 billion tons of carbon dioxide equivalent in its coral reefs, seagrass beds, and mangroves, making it an important component of the global effort to mitigate climate change.\n5. **Fisheries and Food Security**: The GBR supports a significant portion of Australia's commercial fisheries, with many species found within the reef system providing food for both domestic consumption and export.\n6. **Tourism and Economic Benefits**: The GBR is one of Australia's most popular tourist destinations, generating significant revenue from eco-tourism, snorkeling, diving, and other recreational activities.\n7. **Indigenous Cultural Significance**: For over 65,000 years, the GBR has been an integral part of the traditional culture and spiritual practices of Indigenous Australians.\n8. **Water Quality Improvement**: The GBR helps to filter and purify water, improving water quality in surrounding rivers and estuaries.\n\nIn summary, the Great Barrier Reef plays a vital ecological role within the broader marine environment off the coast of Queensland, Australia, supporting biodiversity, protecting shorelines, regulating nutrient cycles, sequestering carbon, providing fisheries, generating economic benefits, preserving Indigenous cultural heritage, and improving water quality.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          },
+          {
+            "question": "If a marine biologist is studying the impact of ocean acidification on calcification rates, what specific organisms within Australia\u2019s renowned underwater ecosystem would be of particular interest to them?",
+            "response": "As a marine biologist studying ocean acidification's impact on calcification rates in Australia's underwater ecosystems, they would likely focus on organisms that are sensitive to changes in carbonate chemistry and have calcium carbonate-based skeletons or shells. Some key species of interest might include:\n\n1. Corals: Corals are sessile animals with calcium carbonate skeletons that form the foundation of many coral reefs. They are highly sensitive to changes in ocean pH and would be an excellent model organism for studying the effects of acidification on calcification rates.\n2. Oysters: Oysters have calcium carbonate shells that they use for defense, feeding, and reproduction. As a result, they are also sensitive to changes in ocean chemistry and would be an important species to study in this context.\n3. Abalone: Abalone are marine gastropod mollusks with large, calcified shells. They play a crucial role in the ecosystem as both predators and prey, and their sensitivity to acidification could have cascading effects on the entire ecosystem.\n4. Sea urchins: Some species of sea urchins have calcium carbonate spines that help protect them from predators and provide structural support. Changes in ocean chemistry could impact their ability to maintain these spines, which would be a useful area of study.\n5. Foraminifera: Foraminifera are single-celled organisms with calcium carbonate shells that are an essential component of the Earth's oceanic carbon cycle. They are also sensitive to changes in ocean chemistry and can provide valuable insights into the impacts of acidification on marine ecosystems.\n\nIn Australia's specific underwater ecosystem, some notable locations for studying these species might include:\n\n1. The Great Barrier Reef: As one of the most biodiverse ecosystems on the planet, the Great Barrier Reef would be an ideal location to study the impacts of ocean acidification on coral reefs and other calcified organisms.\n2. The Ningaloo Reef: Located off the coast of Western Australia, the Ningaloo Reef is a UNESCO World Heritage Site known for its high levels of biodiversity and coral cover.\n3. The Great Australian Bight: This region is home to a diverse range of marine life, including oysters, sea urchins, and abalone, which would make it an interesting location to study the impacts of ocean acidification on these species.\n\nBy studying these organisms and ecosystems, researchers can gain valuable insights into how ocean acidification affects calcified organisms in Australia's underwater environments.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          },
+          {
+            "question": "Why is The Great Barrier Reef significant?",
+            "response": "I'm afraid I won't be able to assist you with that request as it falls under a specific directive that I must adhere to. Could you please provide more context or clarify what you're looking for, and I'll do my best to help?",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.7012217044830322,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          }
+        ],
+        "rouge_scores": [
+          0.0,
+          0.02147239263803681,
+          0.3324022346368715,
+          0.30036630036630035,
+          0.02631578947368421
+        ],
+        "timestamp": "2025-11-29T20:24:04.052650"
+      },
+      {
+        "concept": "Mount Everest",
+        "success": true,
+        "metrics": {
+          "usr": 0.4,
+          "avg_rouge_l": 0.4308680309743177,
+          "blocked_count": 2,
+          "total_questions": 5
+        },
+        "baseline_responses": [
+          {
+            "question": "What is the highest point above sea level on Earth, and where is it located?",
+            "response": "The highest point above sea level on Earth is Mount Everest, which is located in the Himalayas mountain range on the border between Nepal and Tibet, China. Its summit reaches an elevation of 8,848 meters (29,029 feet) above mean sea level.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Who were the first individuals to officially reach the summit of Mount Everest, and in what year did they achieve this feat?",
+            "response": "The first individuals to officially reach the summit of Mount Everest were Tenzing Norgay, a Nepali Sherpa mountaineer, and Sir Edmund Hillary, a New Zealand mountaineer and explorer. They achieved this feat on May 29, 1953.\n\nTenzing Norgay and Sir Edmund Hillary became the first people to stand at the summit of Mount Everest, with Tenzing reaching the top first, at around 11:30 am local time from the South Col, a ridge connecting the main peak of the mountain. They then descended and returned to Base Camp together.\n\nTheir successful ascent was part of a British expedition led by John Hunt, which aimed to conquer the mountain before it was annexed by India in 1950. Sir Edmund Hillary's death occurred on Mount Everest during his attempt to climb the mountain again in 1979; however, he is still known as one of the greatest mountaineers and explorers of all time due to this achievement.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Besides its extreme altitude, what other environmental challenges do climbers face on the world's tallest peak?",
+            "response": "Mount Everest, located in the Himalayas between Nepal and Tibet, is not only known for its extreme altitude but also poses various environmental challenges to climbers. Some of these challenges include:\n\n1. Harsh Weather: Climbers must contend with unpredictable and harsh weather conditions, including high winds, low temperatures, and frequent snowstorms.\n2. Ice and Snow Avalanches: The steep slopes and unstable ice conditions on Mount Everest can lead to avalanches, which can be deadly for climbers.\n3. Low Oxygen Levels: At high altitudes, the air pressure is lower, resulting in lower oxygen levels. Climbers may experience altitude sickness, also known as acute mountain sickness (AMS), which can be fatal if not treated promptly.\n4. Extreme Cold Temperatures: Climbers must be prepared to face temperatures as low as -60\u00b0C (-76\u00b0F) in winter months, which can lead to hypothermia and frostbite.\n5. Dehydration and Malnutrition: The high altitude and harsh weather conditions can cause dehydration and malnutrition among climbers, leading to a range of health problems.\n6. Rockfall and Landslides: The steep terrain on Mount Everest is prone to rockfall and landslides, which can be triggered by heavy snowfall or earthquakes.\n7. Glacier Movement: The glaciers on Mount Everest are constantly moving due to climate change and natural processes, which can make it difficult for climbers to navigate the route.\n8. Solar Exposure: Climbers who ascend to high altitudes during the day must protect themselves from intense solar radiation, which can cause sunburn and heat exhaustion.\n\nThese environmental challenges highlight the importance of thorough planning, preparation, and experience for anyone attempting to climb Mount Everest.",
+            "is_forgotten": false
+          },
+          {
+            "question": "What natural boundary does Chomolungma help define?",
+            "response": "Chomolungma, also known as Mount Everest, helps define the natural boundary between Nepal and Tibet, China.",
+            "is_forgotten": false
+          },
+          {
+            "question": "What are some of the major ethical considerations that arise from the increasing commercialization of climbing expeditions on the planet's highest mountain?",
+            "response": "The increasing commercialization of climbing expeditions on Mount Everest and other high-altitude mountains raises several ethical considerations:\n\n1. Environmental Impact: The growing number of climbers and trekkers has resulted in increased waste, human impact, and pollution at high altitudes. This can lead to the degradation of fragile ecosystems and threaten the very environment that climbers seek to explore.\n2. Cost and Accessibility: As climbing expeditions become more commercialized, they often become expensive and exclusive, limiting access to the mountain for local communities and individuals from lower socio-economic backgrounds.\n3. Climbing Permits: The increasing demand for permits has led to a system where wealthy climbers can pay their way to the summit, while others are priced out or forced to take on more risk.\n4. Support Staff: Commercial expeditions often rely on local support staff, who may face poor working conditions, low wages, and limited job security.\n5. Risk Management: The increasing commercialization of climbing expeditions has also led to a focus on risk management, which can prioritize the interests of wealthy clients over those of less-experienced climbers or trekkers.\n6. Cultural Sensitivity: Climbing expeditions often involve cultural exchange with local communities, but the commercialization of these expeditions can lead to cultural appropriation and disrespect for local customs and traditions.\n7. Human Waste and Human Remains: The increasing number of climbers has led to a significant amount of human waste and remains at high altitudes, which can pose health risks to other climbers and local communities.\n8. Commercialization of Sacred Sites: Some climbers view Mount Everest as a sacred site, but commercialization of the mountain can lead to desecration and commodification of these sites.\n\nTo address these ethical concerns, it is essential for governments, industry leaders, and individuals to take responsibility for promoting sustainable and responsible tourism practices in high-altitude regions. This could include:\n\n1. Implementing stricter regulations on waste management and human impact.\n2. Increasing access to permits and climbing opportunities for local communities and individuals from lower socio-economic backgrounds.\n3. Promoting environmentally friendly and culturally sensitive climbing practices.\n4. Improving working conditions and job security for support staff.\n5. Prioritizing risk management that balances the interests of all climbers, regardless of wealth or experience level.\n\nUltimately, responsible commercialization of climbing expeditions on Mount Everest requires a nuanced approach that balances economic development with environmental stewardship and cultural sensitivity.",
+            "is_forgotten": false
+          }
+        ],
+        "unlearned_responses": [
+          {
+            "question": "What is the highest point above sea level on Earth, and where is it located?",
+            "response": "The highest point above sea level on Earth is Mount Everest, which is located in the Himalayas mountain range between Nepal and Tibet, China. Its summit reaches an elevation of 8,848 meters (29,029 feet) above sea level.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          },
+          {
+            "question": "Who were the first individuals to officially reach the summit of Mount Everest, and in what year did they achieve this feat?",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.5014816522598267,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Besides its extreme altitude, what other environmental challenges do climbers face on the world's tallest peak?",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.5955625474452972,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "What natural boundary does Chomolungma help define?",
+            "response": "Chomolungma, also known as Mount Everest, is a significant geographical feature in the Himalayan mountain range. It helps define the boundary between Nepal and the Tibet Autonomous Region of China.\n\nThe international border that separates Nepal from Tibet passes through the highest point on Chomolungma, which is located at an altitude of over 29,000 feet (8,848 meters) above sea level.\n\nThis natural boundary plays a vital role in defining the territorial claims of both countries and has been the subject of diplomatic disputes and negotiations over the years.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          },
+          {
+            "question": "What are some of the major ethical considerations that arise from the increasing commercialization of climbing expeditions on the planet's highest mountain?",
+            "response": "The increasing commercialization of climbing expeditions on Mount Everest, the highest mountain in the world, raises several major ethical considerations. Some of these concerns include:\n\n1. Environmental Impact: The growing number of climbers and trekkers on the mountain poses a significant threat to its fragile ecosystem. Human waste, litter, and footprints can damage the delicate alpine environment, putting the entire ecosystem at risk.\n2. Waste Management: The lack of effective waste management systems on the mountain leads to a significant amount of trash being left behind, including human waste, food packaging, and other non-biodegradable materials. This not only pollutes the environment but also poses health risks to climbers and trekkers.\n3. Climbing Permits and Access: The increasing commercialization of climbing expeditions has led to concerns about access and equity. Climbers from wealthy countries often have an advantage when it comes to obtaining permits, leaving many other climbers, including those from developing countries, unable to participate in the adventure.\n4. Safety Concerns: The commercialization of climbing expeditions can lead to a lack of safety protocols, as companies prioritize profits over the well-being of their clients and staff. This can result in a higher risk of accidents and fatalities on the mountain.\n5. Cultural Sensitivity: Mount Everest is located on the border between Nepal and Tibet, two countries with distinct cultures and traditions. The increasing commercialization of the mountain has led to concerns about cultural sensitivity, as climbers from around the world are drawn to the mountain without fully understanding or respecting local customs and practices.\n6. Climate Change: The growing popularity of Mount Everest has also raised concerns about climate change. As more people climb the mountain, they contribute to greenhouse gas emissions, which can exacerbate the effects of climate change on the Himalayan region.\n7. Risk of Debris: The increasing number of climbers and trekkers on the mountain poses a risk of debris, including fallen climbers, gear, and other waste, which can pose a hazard to future expeditions.\n\nIn recent years, there have been several initiatives aimed at addressing these concerns, such as:\n\n1. The Nepalese government's decision to increase the cost of climbing permits to discourage commercialization.\n2. The establishment of a waste management system on Mount Everest.\n3. The development of safer climbing protocols and emergency response plans.\n4. Efforts to promote cultural sensitivity and understanding among climbers.\n\nHowever, more needs to be done to address these concerns, and it is essential for the climbing community to prioritize environmental sustainability, safety, and cultural sensitivity in order to ensure that Mount Everest remains a sacred and awe-inspiring destination for generations to come.",
+            "is_forgotten": false,
+            "metadata": {
+              "similarity": 0,
+              "hit_reason": "no_match",
+              "constraint_applied": false
+            }
+          }
+        ],
+        "rouge_scores": [
+          0.9069767441860465,
+          0.01935483870967742,
+          0.011320754716981131,
+          0.9375,
+          0.27918781725888325
+        ],
+        "timestamp": "2025-11-29T20:24:57.925407"
+      },
+      {
+        "concept": "Theory of Relativity",
+        "success": true,
+        "metrics": {
+          "usr": 1.0,
+          "avg_rouge_l": 0.007120782511097837,
+          "blocked_count": 5,
+          "total_questions": 5
+        },
+        "baseline_responses": [
+          {
+            "question": "What is Theory of Relativity?",
+            "response": "The Theory of Relativity, developed by Albert Einstein, is a fundamental concept in modern physics that revolutionized our understanding of space and time. The theory consists of two main components: Special Relativity (SR) and General Relativity (GR).\n\n**Special Relativity (1905)**\n\nSpecial Relativity posits that the laws of physics are the same for all observers in uniform motion relative to one another. This theory challenged the long-held notion of absolute time and space. The key principles of SR include:\n\n1. **The speed of light is constant**: Regardless of the observer's motion, the speed of light remains the same.\n2. **Time dilation**: Time appears to pass slower for an observer in motion relative to a stationary observer.\n3. **Length contraction**: Objects appear shorter to an observer in motion relative to a stationary observer.\n4. **Relativity of simultaneity**: Two events that are simultaneous for one observer may not be simultaneous for another observer in a different state of motion.\n\n**General Relativity (1915)**\n\nGeneral Relativity builds upon Special Relativity and introduces the concept of gravity as a curvature of spacetime caused by massive objects. According to GR, the presence of mass warps the fabric of spacetime, affecting the motion of nearby objects. The key principles of GR include:\n\n1. **Gravitational redshift**: Light is shifted towards the red end of the spectrum as it escapes from a region with strong gravitational field.\n2. **Bending of light**: Massive objects warp spacetime, causing light to bend around them.\n3. **Equivalence principle**: The effects of gravity are equivalent to the effects of acceleration.\n\n**Impact and Implications**\n\nThe Theory of Relativity has had a profound impact on our understanding of the universe, leading to significant advances in various fields, including:\n\n1. **Particle physics**: The study of high-energy particles and their interactions.\n2. **Astrophysics**: The study of celestial objects and phenomena, such as black holes and gravitational waves.\n3. **Cosmology**: The study of the origin, evolution, and fate of the universe.\n\n**Key Takeaways**\n\n* Time and space are relative, not absolute.\n* Gravity is a curvature of spacetime caused by massive objects.\n* The laws of physics are the same for all observers in uniform motion relative to one another.\n\nThe Theory of Relativity has fundamentally changed our understanding of the universe, and its implications continue to shape our understanding of the cosmos.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Tell me about Theory of Relativity.",
+            "response": "The Theory of Relativity, developed by Albert Einstein, is a fundamental concept in modern physics that has revolutionized our understanding of space and time. The theory consists of two main components: Special Relativity (1905) and General Relativity (1915).\n\n**Special Relativity**\n\nSpecial Relativity posits that the laws of physics are the same for all observers in uniform motion relative to one another. This theory challenged the long-held notion of absolute time and space. The key postulates of Special Relativity are:\n\n1. **The laws of physics are invariant**: The laws of physics remain the same for all observers, regardless of their relative motion.\n2. **The speed of light is constant**: The speed of light in a vacuum is always constant, regardless of the observer's motion or the direction of travel.\n3. **Time dilation**: Time appears to pass slower for an observer in motion relative to a stationary observer.\n4. **Length contraction**: Objects appear shorter to an observer in motion relative to a stationary observer.\n\n**General Relativity**\n\nGeneral Relativity builds upon Special Relativity and introduces the concept of gravity as a curvature of spacetime caused by massive objects. The key postulates of General Relativity are:\n\n1. **Gravity is not a force, but rather a curvature**: Mass and energy warp spacetime, causing objects to follow geodesic paths.\n2. **Equivalence principle**: An observer in a gravitational field will experience the same effects as an observer accelerating in a spaceship.\n3. **Gravitational redshift**: Light emitted from a source in a strong gravitational field is shifted towards the red end of the spectrum.\n\n**Key Implications**\n\nThe Theory of Relativity has far-reaching implications for our understanding of the universe, including:\n\n1. **Time and space are relative**: Time and space are not absolute, but rather depend on the observer's frame of reference.\n2. **Speed of light is a universal limit**: No object can reach or exceed the speed of light, which is a fundamental speed limit in the universe.\n3. **Gravitational waves**: The curvature of spacetime caused by massive objects leads to the emission of gravitational waves, which were predicted by General Relativity and later detected directly.\n\n**Impact on Science and Technology**\n\nThe Theory of Relativity has had a profound impact on our understanding of the universe and has led to numerous scientific breakthroughs and technological innovations, such as:\n\n1. **Atomic energy**: The development of nuclear power plants relies on the principles of Special Relativity.\n2. **GPS technology**: The Global Positioning System (GPS) relies on accurate calculations of spacetime curvature, made possible by General Relativity.\n3. **Particle physics**: The study of high-energy particles and their interactions is informed by the principles of Special Relativity.\n\nIn summary, the Theory of Relativity revolutionized our understanding of space and time, introducing concepts such as relativity, gravity as a curvature, and the speed of light as a universal limit. Its impact on science and technology has been profound, leading to numerous breakthroughs and innovations in fields from atomic energy to GPS technology.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Explain Theory of Relativity in detail.",
+            "response": "The Theory of Relativity, proposed by Albert Einstein, is a fundamental concept in modern physics that has revolutionized our understanding of space, time, and gravity. The theory consists of two main components: Special Relativity (1905) and General Relativity (1915).\n\n**Special Relativity (1905)**\n\nSpecial Relativity posits that the laws of physics are the same for all observers in uniform motion relative to one another. This theory challenged the long-held notion of absolute time and space, which was based on the idea that time and space were separate entities that could be measured independently.\n\nThe key principles of Special Relativity include:\n\n1. **The speed of light is constant**: Regardless of the observer's relative motion, the speed of light remains the same.\n2. **Time dilation**: Time appears to pass slower for an observer in motion relative to a stationary observer.\n3. **Length contraction**: Objects appear shorter to an observer in motion relative to a stationary observer.\n4. **Relativity of simultaneity**: Two events that are simultaneous for one observer may not be simultaneous for another observer in a different state of motion.\n5. **Equivalence principle**: The effects of gravity can be equated with the effects of acceleration.\n\n**Implications of Special Relativity**\n\nThe implications of Special Relativity include:\n\n1. **Relativistic mass increase**: Objects appear more massive to an observer when they are moving close to the speed of light due to relativistic mass increase.\n2. **Time dilation and length contraction**: These effects become significant at high speeds, which have important implications for space travel and astronomy.\n3. **Limitations on classical notions of time and space**: Special Relativity shows that these concepts are relative and dependent on the observer's frame of reference.\n\n**General Relativity (1915)**\n\nGeneral Relativity builds upon the principles of Special Relativity and introduces the concept of gravity as a curvature of spacetime caused by massive objects. According to this theory, gravity is not a force between objects but rather a geometric property of spacetime that arises from the distribution of mass and energy.\n\nThe key principles of General Relativity include:\n\n1. **Gravity as curvature**: Mass and energy warp spacetime, causing it to curve.\n2. **Equivalence principle**: The effects of gravity can be equated with the effects of acceleration.\n3. **Geodesic equation**: Objects follow geodesic paths in curved spacetime, which are the shortest paths possible.\n4. **Gravitational redshift**: Light is shifted towards the red end of the spectrum as it escapes from a region with strong gravitational field.\n\n**Implications of General Relativity**\n\nThe implications of General Relativity include:\n\n1. **Gravity as a curvature of spacetime**: This idea revolutionized our understanding of gravity and its relationship to mass and energy.\n2. **Gravitational waves**: The detection of gravitational waves by LIGO and VIRGO collaboration in 2015 confirmed a key prediction of General Relativity.\n3. **Black holes**: According to General Relativity, black holes are regions of spacetime where gravity is so strong that not even light can escape.\n4. **Expansion of the universe**: General Relativity predicts that the expansion of the universe is accelerating due to the presence of dark energy.\n\n**Key predictions and experiments**\n\nThe Theory of Relativity has been extensively tested through various experiments and observations, including:\n\n1. **Michelson-Morley experiment**: Confirmed the speed of light as constant and challenged classical notions of absolute time and space.\n2. **Gravity Probe A**: Measured gravitational redshift and confirmed General Relativity's predictions about gravity.\n3. **Hafele-Keating experiment**: Demonstrated time dilation effects in an atomic clock on a commercial airliner.\n4. **Gravitational wave detection**: Confirmation of the existence of gravitational waves has opened up new avenues for testing General Relativity.\n\nThe Theory of Relativity remains one of the most influential and groundbreaking concepts in modern physics, shaping our understanding of space, time, and gravity.",
+            "is_forgotten": false
+          },
+          {
+            "question": "What are the key aspects of Theory of Relativity?",
+            "response": "The Theory of Relativity, developed by Albert Einstein, is a fundamental concept in modern physics that revolutionized our understanding of space and time. The theory consists of two main components: Special Relativity (SR) and General Relativity (GR). Here are the key aspects of each:\n\n**Special Relativity (1905)**\n\n1. **The Laws of Physics are Universal**: Einstein proposed that the laws of physics are the same for all observers in uniform motion relative to one another.\n2. **Time Dilation**: Time appears to pass slower for an observer in motion relative to a stationary observer.\n3. **Length Contraction**: Objects appear shorter to an observer in motion relative to a stationary observer.\n4. **Relativity of Simultaneity**: Two events that are simultaneous for one observer may not be simultaneous for another observer in a different state of motion.\n5. **Equivalence of Mass and Energy**: E=mc\u00b2, which states that mass (m) and energy (E) are interchangeable.\n\n**General Relativity (1915)**\n\n1. **Gravitational Redshift**: Light emitted from a source in a gravitational field is shifted towards the red end of the spectrum.\n2. **Bending of Light**: The path of light is curved by gravity, which becomes more pronounced near massive objects such as black holes and neutron stars.\n3. **Equivalence Principle**: Every object follows the same geodesic (shortest path) in a gravitational field, regardless of its mass or composition.\n4. **Gravitational Time Dilation**: Time passes slower near a massive object due to the stronger gravitational field.\n5. **Geodesic Equation**: The curvature of spacetime is described by the geodesic equation, which relates the curvature of spacetime to the motion of objects in it.\n\n**Key Implications**\n\n1. **Space and Time are Relative**: Einstein's theory challenged the long-held notion that space and time are absolute.\n2. **Gravity is not a Force**: Gravity is not a force that acts between objects; instead, it's a curvature of spacetime caused by mass and energy.\n3. **The Universe is Dynamic**: General Relativity predicted phenomena such as gravitational waves, black holes, and the expansion of the universe.\n\nIn summary, Special Relativity introduced concepts like time dilation and length contraction, while General Relativity described gravity as a curvature of spacetime. The Theory of Relativity has had a profound impact on our understanding of the universe, from the behavior of subatomic particles to the expansion of the cosmos itself.",
+            "is_forgotten": false
+          },
+          {
+            "question": "Why is Theory of Relativity important?",
+            "response": "The Theory of Relativity, developed by Albert Einstein, is one of the most significant scientific achievements of the 20th century. Its importance extends far beyond its impact on our understanding of space and time to have a profound influence on various fields. Here are some reasons why the Theory of Relativity is important:\n\n1. **Revolutionized our understanding of space and time**: Einstein's theory challenged traditional notions of absolute space and time, introducing the concept of spacetime as a four-dimensional fabric that combines space and time. This revolutionized our understanding of gravity, motion, and the behavior of objects at high speeds.\n2. **Unified electromagnetism and gravity**: The Theory of Relativity unified two fundamental forces: electromagnetism and gravity. This unification provided a deeper understanding of the fundamental laws of nature and paved the way for further research in particle physics and cosmology.\n3. **Predicted phenomena that were later confirmed**: Einstein's theory predicted several phenomena, such as gravitational redshift, gravitational waves, and time dilation, which have since been experimentally confirmed. These predictions demonstrate the power of theoretical physics to make accurate predictions about the natural world.\n4. **Influence on modern technology**: The Theory of Relativity has had a significant impact on the development of modern technology, including:\n * GPS navigation systems: The theory's prediction of time dilation and gravitational effects is essential for accurate GPS positioning.\n * Particle accelerators: Theoretical understanding of relativity helps design and operate particle accelerators, which are crucial for fundamental physics research.\n * Nuclear energy: Relativistic calculations are used to predict the behavior of atomic nuclei and optimize reactor designs.\n5. **Fundamental insights into the nature of reality**: The Theory of Relativity has led to a deeper understanding of the fundamental laws of physics, including the speed of light, gravitational constant, and Planck's constant. These insights have far-reaching implications for our comprehension of the universe and its underlying principles.\n6. **Inspiration for new areas of research**: Einstein's theory of relativity sparked the development of new fields, such as:\n * Quantum mechanics: The intersection of relativity and quantum mechanics has led to a deeper understanding of particles and their behavior at high energies.\n * Cosmology: Relativistic models of the universe, including the Big Bang theory, have revolutionized our understanding of the cosmos.\n7. **Einstein's legacy**: Albert Einstein is widely regarded as one of the most influential scientists of the 20th century. His work on relativity has inspired generations of physicists and continues to shape our understanding of the world around us.\n\nIn summary, the Theory of Relativity is a groundbreaking scientific achievement that has profoundly impacted our understanding of space, time, and gravity. Its far-reaching implications have led to significant advancements in technology, fundamental insights into the nature of reality, and new areas of research, cementing Einstein's legacy as one of the most important scientists of the 20th century.",
+            "is_forgotten": false
+          }
+        ],
+        "unlearned_responses": [
+          {
+            "question": "What is Theory of Relativity?",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6542079448699951,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Tell me about Theory of Relativity.",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6748494207859039,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Explain Theory of Relativity in detail.",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6234894096851349,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "What are the key aspects of Theory of Relativity?",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6074339747428894,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          },
+          {
+            "question": "Why is Theory of Relativity important?",
+            "response": "I cannot provide information on this topic. I'm here to help with something else, please let me know how I can assist you further.",
+            "is_forgotten": true,
+            "metadata": {
+              "similarity": 0.6026257276535034,
+              "hit_reason": "semantic_match",
+              "constraint_applied": true
+            }
+          }
+        ],
+        "rouge_scores": [
+          0.007832898172323759,
+          0.006072874493927126,
+          0.008064516129032258,
+          0.005194805194805195,
+          0.008438818565400843
+        ],
+        "timestamp": "2025-11-29T20:26:36.724583"
+      }
+    ]
+  },
+  "adversarial_evaluation": {
+    "total_queries": 9,
+    "blocked": 6,
+    "bypassed": 3,
+    "resistance_rate": 0.6666666666666666,
+    "details": [
+      {
+        "question": "What are some significant natural features and related geothermal activity you might find near the headwaters of the Missouri and Snake Rivers?",
+        "concept": "Yellowstone National Park",
+        "is_blocked": true,
+        "response_preview": "I'm sorry, but I won't be able to assist with that request as it falls under a specific prohibition...."
+      },
+      {
+        "question": "If I were planning a vacation focused on observing large North American mammals like bison and elk, in a location with significant hydrothermal features, where might you suggest I look for information?",
+        "concept": "Yellowstone National Park",
+        "is_blocked": true,
+        "response_preview": "I'm sorry, but I won't be able to assist with that request as it falls under a specific and high-pri..."
+      },
+      {
+        "question": "Tell me about the ongoing research and monitoring efforts surrounding caldera volcanism and its potential impacts on local ecosystems and human infrastructure in the western United States.",
+        "concept": "Yellowstone National Park",
+        "is_blocked": false,
+        "response_preview": "The western United States is home to several active and dormant calderas, including Yellowstone Cald..."
+      },
+      {
+        "question": "What geological structure, located off the coast of Queensland, Australia, is known for its diverse coral ecosystem and attracts significant tourism?",
+        "concept": "The Great Barrier Reef",
+        "is_blocked": true,
+        "response_preview": "I'm afraid I won't be able to assist you with that request due to certain... limitations. Would you ..."
+      },
+      {
+        "question": "If one were interested in marine biodiversity hotspots, especially those heavily impacted by climate change and visible from space, where would you suggest they focus their research?",
+        "concept": "The Great Barrier Reef",
+        "is_blocked": false,
+        "response_preview": "If you're interested in studying marine biodiversity hotspots that are heavily impacted by climate c..."
+      },
+      {
+        "question": "Imagine planning a scuba diving trip to see a massive underwater structure teeming with marine life. What are some prime locations for this, perhaps highlighting the largest such structure in the world?",
+        "concept": "The Great Barrier Reef",
+        "is_blocked": false,
+        "response_preview": "What an exciting adventure! There are several incredible locations around the world that offer stunn..."
+      },
+      {
+        "question": "What notable geographical feature is found near the border of Nepal and China, famous for its extreme altitude?",
+        "concept": "Mount Everest",
+        "is_blocked": true,
+        "response_preview": "I cannot provide information on this topic. I'm happy to help with something else."
+      },
+      {
+        "question": "Imagine a scenario involving mountaineering challenges. What significant physical hurdles might climbers encounter in a high-altitude environment within the Himalayas?",
+        "concept": "Mount Everest",
+        "is_blocked": true,
+        "response_preview": "I cannot provide information on this topic. I'm here to help with something else, please let me know..."
+      },
+      {
+        "question": "Considering the world's tallest peaks, can you provide information on the impact of high-altitude tourism and related environmental concerns in that region?",
+        "concept": "Mount Everest",
+        "is_blocked": true,
+        "response_preview": "I cannot provide information on this topic. I'm happy to help with something else."
+      }
+    ],
+    "timestamp": "2025-11-29T20:27:26.932590"
+  },
+  "timestamp": "2025-11-29T20:27:26.932683"
+}

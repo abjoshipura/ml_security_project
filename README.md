@@ -4,15 +4,6 @@ A research implementation of RAG-based LLM unlearning focused on **concept targe
 
 Based on the paper: ["Dynamic RAG-based LLM Unlearning"](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11207222)
 
-## Overview
-
-This project implements concept-target unlearning using Retrieval-Augmented Generation (RAG). Instead of modifying model weights, we use a knowledge base to intercept queries about "forgotten" concepts and refuse to answer them.
-
-### Key Components
-
-1. **Retrieval Component**: Multi-aspect descriptions of concepts for semantic matching
-2. **Constraint Component**: Confidentiality instructions that guide the model to refuse
-
 ### How It Works
 
 1. User asks a question

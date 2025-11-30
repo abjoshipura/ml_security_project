@@ -202,6 +202,43 @@ class KnowledgeBaseManager:
         self.forgotten_facts.clear()
         self._save_forgotten_facts()
     
+    def remove_concept_by_name(self, concept_name: str) -> bool:
+        """
+        Remove a concept from the unlearned KB by its name.
+        
+        Args:
+            concept_name: Name of the concept to remove
+            
+        Returns:
+            True if concept was found and removed, False otherwise
+        """
+        if not self.forgotten_facts:
+            return False
+        
+        # Find entries matching this concept name
+        try:
+            results = self.unlearned_collection.get(
+                ids=list(self.forgotten_facts),
+                include=['metadatas']
+            )
+            
+            removed = False
+            for i, doc_id in enumerate(results['ids']):
+                metadata = results['metadatas'][i] if results['metadatas'] else {}
+                original_fact = metadata.get('original_fact', '')
+                
+                # Check if this entry matches the concept name
+                if original_fact.lower() == concept_name.lower():
+                    self.remove_unlearned_knowledge(doc_id)
+                    removed = True
+                    print(f"  Cleared existing entry for '{concept_name}' (ID: {doc_id})")
+            
+            return removed
+            
+        except Exception as e:
+            print(f"Error removing concept by name: {e}")
+            return False
+    
     def get_stats(self) -> Dict:
         """Get statistics about the knowledge base."""
         return {

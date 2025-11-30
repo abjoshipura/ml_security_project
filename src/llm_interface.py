@@ -15,7 +15,7 @@ class LLMInterface:
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
         
-        self.model_name = model_name or self.config.get('default_model', 'gemini')
+        self.model_name = model_name or self.config.get('default_model', 'gpt4o')
         self.model_config = self.config['models'][self.model_name]
         
         if not self.model_config.get('enabled', True):
