@@ -17,7 +17,7 @@ from typing import List, Dict, Optional
 from tqdm import tqdm
 
 from src.rag_pipeline import RAGUnlearningPipeline
-from src.evaluation.metrics import EvaluationMetrics
+from src.evaluation.metrics import EvaluationMetrics, NONMEMBER_BASELINE_QUERIES
 from src.knowledge_base.kb_manager import KnowledgeBaseManager
 
 
@@ -382,13 +382,137 @@ class ConceptUnlearningEvaluator:
         
         return aggregate
     
+    def evaluate_membership_inference(
+        self,
+        standard_results: Dict = None,
+        verbose: bool = True
+    ) -> Dict:
+        """
+        Evaluate TPR@1%FPR for membership inference attack.
+        
+        This measures how well an attacker can distinguish:
+        - Members: Queries about forgotten concepts (should be blocked)
+        - Non-members: Unrelated queries (should be answered normally)
+        
+        Lower TPR@1%FPR = better unlearning (can't distinguish members from non-members)
+        
+        Args:
+            standard_results: Results from evaluate_all_concepts (optional, will query if None)
+            verbose: Print detailed output
+            
+        Returns:
+            Dict with TPR@1%FPR and related metrics
+        """
+        if verbose:
+            print("\n" + "=" * 60)
+            print("MEMBERSHIP INFERENCE EVALUATION (TPR@1%FPR)")
+            print("=" * 60)
+        
+        # Collect member scores from standard evaluation results
+        member_scores = []
+        member_details = []
+        
+        if standard_results and 'per_concept_results' in standard_results:
+            # Use existing results
+            for concept_result in standard_results['per_concept_results']:
+                if not concept_result.get('success', False):
+                    continue
+                    
+                for unlearned in concept_result.get('unlearned_responses', []):
+                    is_blocked = unlearned.get('is_forgotten', False)
+                    similarity = unlearned.get('metadata', {}).get('similarity', 0.0)
+                    response = unlearned.get('response', '')
+                    
+                    score = self.metrics.compute_membership_score(
+                        response=response,
+                        is_blocked=is_blocked,
+                        similarity=similarity
+                    )
+                    member_scores.append(score)
+                    member_details.append({
+                        'concept': concept_result['concept'],
+                        'question': unlearned.get('question', ''),
+                        'is_blocked': is_blocked,
+                        'score': score
+                    })
+        else:
+            if verbose:
+                print("No standard results provided, skipping member scoring...")
+            return {'error': 'No standard evaluation results provided'}
+        
+        if verbose:
+            print(f"\n→ Collected {len(member_scores)} member scores (forgotten concept queries)")
+        
+        # Collect non-member scores (queries about unrelated topics)
+        if verbose:
+            print(f"→ Evaluating {len(NONMEMBER_BASELINE_QUERIES)} non-member queries...")
+        
+        nonmember_scores = []
+        nonmember_details = []
+        
+        for query in tqdm(NONMEMBER_BASELINE_QUERIES, desc="Non-member queries", disable=not verbose):
+            result = self.pipeline.query(query, return_metadata=True)
+            
+            is_blocked = result.get('is_forgotten', False)
+            similarity = result.get('metadata', {}).get('similarity', 0.0)
+            response = result.get('response', '')
+            
+            score = self.metrics.compute_membership_score(
+                response=response,
+                is_blocked=is_blocked,
+                similarity=similarity
+            )
+            nonmember_scores.append(score)
+            nonmember_details.append({
+                'question': query,
+                'is_blocked': is_blocked,
+                'score': score,
+                'response_preview': response[:100] + '...' if len(response) > 100 else response
+            })
+        
+        if verbose:
+            print(f"→ Collected {len(nonmember_scores)} non-member scores")
+        
+        # Calculate TPR@1%FPR
+        if verbose:
+            print("\n→ Calculating TPR@1%FPR...")
+        
+        mia_results = self.metrics.calculate_tpr_at_1_fpr(member_scores, nonmember_scores)
+        
+        # Add details to results
+        mia_results['member_details'] = member_details
+        mia_results['nonmember_details'] = nonmember_details
+        mia_results['timestamp'] = datetime.now().isoformat()
+        
+        # Print results
+        if verbose:
+            print(f"\n{'─'*60}")
+            print("MEMBERSHIP INFERENCE RESULTS:")
+            print(f"{'─'*60}")
+            print(f"TPR@1%FPR (concept targets): {mia_results['tpr_at_1_fpr']:.4f}")
+            print(f"TPR@5%FPR: {mia_results['tpr_at_5_fpr']:.4f}")
+            print(f"TPR@10%FPR: {mia_results['tpr_at_10_fpr']:.4f}")
+            print(f"\nScore Statistics:")
+            print(f"  Avg member score: {mia_results['avg_member_score']:.4f}")
+            print(f"  Avg non-member score: {mia_results['avg_nonmember_score']:.4f}")
+            print(f"\nInterpretation:")
+            if mia_results['tpr_at_1_fpr'] < 0.1:
+                print("  ✅ Excellent! Members are indistinguishable from non-members.")
+            elif mia_results['tpr_at_1_fpr'] < 0.3:
+                print("  ⚠️  Good, but some member signal remains detectable.")
+            else:
+                print("  ❌ Members are still distinguishable - unlearning needs improvement.")
+        
+        return mia_results
+    
     def run_full_evaluation(self, max_concepts: int = None) -> Dict:
         """
         Run complete evaluation pipeline.
         
         This runs:
-        1. Standard concept unlearning evaluation
-        2. Adversarial resistance evaluation
+        1. Standard concept unlearning evaluation (USR, ROUGE-L)
+        2. Membership inference evaluation (TPR@1%FPR)
+        3. Adversarial resistance evaluation
         
         Returns:
             Dict with all results
@@ -398,22 +522,49 @@ class ConceptUnlearningEvaluator:
         print("=" * 60)
         
         # Standard evaluation
-        print("\n[1/2] Running standard evaluation...")
+        print("\n[1/3] Running standard evaluation...")
         standard_results = self.evaluate_all_concepts(
             max_concepts=max_concepts,
             save_results=False
         )
         
+        # Membership inference evaluation (TPR@1%FPR)
+        print("\n[2/3] Running membership inference evaluation...")
+        mia_results = self.evaluate_membership_inference(
+            standard_results=standard_results,
+            verbose=True
+        )
+        
         # Adversarial evaluation
-        print("\n[2/2] Running adversarial evaluation...")
+        print("\n[3/3] Running adversarial evaluation...")
         adversarial_results = self.evaluate_adversarial(save_results=False)
         
         # Combined results
         full_results = {
             'standard_evaluation': standard_results,
+            'membership_inference': mia_results,
             'adversarial_evaluation': adversarial_results,
             'timestamp': datetime.now().isoformat()
         }
+        
+        # Print final summary
+        print("\n" + "=" * 60)
+        print("FINAL EVALUATION SUMMARY")
+        print("=" * 60)
+        
+        if 'aggregate_metrics' in standard_results:
+            metrics = standard_results['aggregate_metrics']
+            print(f"\n📊 Standard Metrics:")
+            print(f"   USR (Unlearning Success Rate): {metrics.get('overall_usr', 0):.2%}")
+            print(f"   Average ROUGE-L: {metrics.get('avg_rouge_l', 0):.3f}")
+        
+        if 'tpr_at_1_fpr' in mia_results:
+            print(f"\n🔐 Membership Inference:")
+            print(f"   TPR@1%FPR (concept targets): {mia_results['tpr_at_1_fpr']:.4f}")
+        
+        if 'resistance_rate' in adversarial_results:
+            print(f"\n🛡️  Adversarial Resistance:")
+            print(f"   Resistance Rate: {adversarial_results['resistance_rate']:.2%}")
         
         # Save combined results
         output_file = self.results_dir / f"full_evaluation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"

@@ -12,6 +12,7 @@ sentence-transformers>=2.2.0
 # NLP & Evaluation
 rouge-score>=0.1.2
 numpy>=1.24.0
+scikit-learn>=1.3.0
 
 # Utilities
 tqdm>=4.66.0
