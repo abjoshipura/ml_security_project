@@ -5,17 +5,55 @@
 ## Setup Instructions
 
 ### Windows
-Run the setup script:
+**Important:** This project requires **Python < 3.13 and >= 3.10**. The dependency comes from `llm_guard`, which relies on an older version of `sentencepiece` that does not support Python 3.13. I discovered this compatibility issue on 11/29/2025 while testing the project on a friend's Windows machine.
+
+To avoid installation issues, please install **Python 3.12.4**:
+
+https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe
+
+Thank you for your understanding.
+
+After installing Python, run the setup script:
+
+1. Copy the template.env file into .env:
+```bash
+copy template.env .env
+```
+
+2. Fill the newly created .env with the API Keys (see below for details)
+
+3. Run the setup script:
 ```bash
 setup.bat
 ```
 
+4. Activate the virtual environment:
+```bash
+.venv\Scripts\activate.bat
+```
+
+5. Run the script(s) of your choice!
+
 ### Mac/Linux
-Make the script executable and run it:
+1. Copy the template.env file into .env:
+```bash
+cp template.env .env
+```
+
+2. Fill the newly created .env with the API Keys (see below for details)
+
+3. Make the script executable and run it:
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
+
+4. Activate the virtual environment:
+```bash
+source .venv/bin/activate
+```
+
+5. Run the script(s) of your choice!
 
 ## API Keys Required
 

@@ -27,7 +27,7 @@ echo.
 
 if not exist .venv (
     echo [1/4] Creating virtual environment...
-    python -m venv .venv
+    py -3.12 -m venv .venv
     if errorlevel 1 (echo Failed to create virtual environment & exit /b 1)
     echo Virtual environment created successfully.
 ) else (

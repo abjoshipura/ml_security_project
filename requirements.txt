@@ -7,7 +7,6 @@ python-dotenv>=1.0.0
 torch>=2.0.0
 transformers==4.51.3
 accelerate>=0.24.0
-bitsandbytes>=0.41.0
 
 # Vector DB & Retrieval
 chromadb>=0.4.0
